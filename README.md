@@ -20,10 +20,27 @@ irrigation access, soil health and uncertain weather. In Bangladesh, fragmented
 plots and regional differences make it especially important to distinguish
 local observations from information reported at satellite-grid scale.
 
-AgriGuardian explores this problem through a Flutter app and FastAPI backend.
-Its Rajshahi Aman pilot analyses historical NASA POWER rainfall and temperature
-against a sourced national rice calendar. A separate rotation service assembles
-regional crop calendars and suitability evidence for scenario exploration.
+AgriGuardian targets farmers across **all 64 districts in Bangladesh's eight
+divisions** through a Flutter app and FastAPI backend. The location service
+uses nationwide district boundaries and regional crop calendars to assemble
+location-specific evidence for rotation scenarios. Its historical Rajshahi Aman
+pilot is one case study; it is not the default location for the nationwide
+rotation service.
+
+## Coverage across Bangladesh
+
+The backend includes location references for all 64 districts across Dhaka,
+Chattogram, Rajshahi, Khulna, Barishal, Sylhet, Rangpur and Mymensingh
+divisions. It resolves a provided coordinate or field polygon to a district and
+selects the corresponding BAMIS regional calendar. The location and calendar
+test suite checks all 64 district centroids; it does not establish field-level
+accuracy or validate recommendations for every farm.
+
+Boundaries are simplified and points near district borders may resolve
+ambiguously. Crop-calendar coverage and external data availability vary by
+location and crop. In particular, the Mymensingh-region Aman calendar has a
+known source discrepancy and is not served as verified evidence. When evidence
+is unavailable, the service reports the gap.
 
 ## What the prototype does
 
@@ -58,8 +75,8 @@ it does not alone prove a validated, production-ready integration.
 | [BAMIS / DAE crop-weather calendars](https://www.bamis.gov.bd/) | Regional crop windows, normal rainfall and water requirements support seasonal and irrigation checks. | The rotation engine uses available calendar rows; uncertainties must be reviewed for each region. The recorded acquisition run did not check this reference dataset. |
 | [FAO GAEZ v5](https://gaez.fao.org/) | Crop suitability provides context when comparing scenarios. | Available rainfed and irrigated indices inform screening and tie-breaking. Values are modelled, not observed farm yields; availability varies by crop. The recorded run did not check this dataset. |
 | [ISRIC SoilGrids](https://soilgrids.org/) | Modelled soil properties provide context, including pH, organic carbon and nitrogen. | A sample was acquired. The rotation service requests 0–5 cm estimates as context; it does not currently apply soil-suitability thresholds. |
-| [BRRI / BBS rice calendar](docs/references/rajshahi_aman_pilot.md) | A sourced baseline for comparing the Aman rice transplanting period. | Used in the Rajshahi pilot as a national reference, not a district-specific recommendation. |
-| [GeoNames](https://www.geonames.org/1185128/) and [Bangladesh location references](backend/api/app/integrations/reference/bd_locations.py) | Administrative location context helps select the relevant regional evidence. | The historical pilot uses a Rajshahi city-centre coordinate, not a farm coordinate. |
+| [BRRI / BBS rice calendar](docs/references/rajshahi_aman_pilot.md) | A Bangladesh-wide baseline for comparing rice transplanting periods. | Used as a national reference in the Rajshahi case study, not as a district-specific recommendation. |
+| [Bangladesh district location references](backend/api/app/integrations/reference/bd_locations.py) | District boundaries and GeoNames centroids help select region-specific evidence across Bangladesh. | Covers 64 districts. Coordinates near simplified boundaries can be ambiguous; district centroids are not farm locations. |
 | Farmer-provided field and crop information | Farmer inputs provide location, history, irrigation access and priorities. | Inputs are self-reported; onboarding data is stored locally on the device. Backend field-scoped rotation endpoints require authentication. |
 | [FAOSTAT](https://www.fao.org/faostat/) | National crop production and yield statistics provide agricultural context. | A Bangladesh sample was acquired. National statistics must not be presented as field-level yield predictions. |
 
@@ -166,11 +183,14 @@ Check the actual test and CI results for the commit being evaluated.
 
 ## Project documentation
 
-- [Rajshahi Aman pilot and source record](docs/references/rajshahi_aman_pilot.md)
+- [Bangladesh district location references](backend/api/app/integrations/reference/bd_locations.py)
+- [Nationwide district and calendar tests](backend/api/tests/integrations/test_nationwide.py)
+- [Regional rotation evidence samples](docs/evidence/rotation_live_runs.json)
 - [Dataset evidence matrix](docs/evidence/dataset_matrix.md)
 - [Dataset catalogue and source links](nasa_bangladesh_agriculture_datasets_updated.md)
 - [Backend architecture](docs/BACKEND_ARCHITECTURE.md)
 - [Contribution guidance](CONTRIBUTING.md)
+- [Rajshahi Aman historical case study and source record](docs/references/rajshahi_aman_pilot.md)
 
 ## Attribution and responsible use
 
