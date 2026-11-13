@@ -24,10 +24,10 @@ class OnboardingController extends AsyncNotifier<OnboardingProfile> {
   Future<void> _update(
     OnboardingProfile Function(OnboardingProfile current) change,
   ) async {
-    final current = state.valueOrNull ?? const OnboardingProfile();
+    final current = state.valueOrNull ?? await future;
     final next = change(current);
-    state = AsyncData(next);
     await ref.read(onboardingStoreProvider).write(next);
+    state = AsyncData(next);
   }
 
   Future<void> setLanguage(AppLanguage language) =>

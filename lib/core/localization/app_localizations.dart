@@ -779,7 +779,7 @@ class AppLocalizations {
   String get farmSizeHint => isBangla ? 'যেমন: ২.৫' : 'e.g. 2.5';
   String get acreUnit => isBangla ? 'একর' : 'acres';
   String get farmSizeInvalid => isBangla
-      ? 'একটি সঠিক সংখ্যা লিখুন (ইংরেজি অঙ্কে)।'
+      ? 'জমির পরিমাণ শূন্যের চেয়ে বড় একটি সংখ্যা হতে হবে।'
       : 'Enter a valid number.';
   String get currentCropQuestion =>
       isBangla ? 'এখন কোন ফসল আছে?' : 'What crop is growing now?';

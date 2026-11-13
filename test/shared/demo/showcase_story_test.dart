@@ -276,16 +276,11 @@ void main() {
     ) async {
       await pump(tester, const ProfileScreen());
 
-      expect(find.text(DemoStory.farmer.nameEn), findsOneWidget);
-      expect(
-        find.text(
-          '${DemoStory.farmer.roleBn} • অবস্থান নির্বাচন করুন',
-        ),
-        findsOneWidget,
-      );
+      expect(find.text(DemoStory.farmer.nameEn), findsNothing);
+      expect(find.text('কৃষক • অবস্থান নির্বাচন করুন'), findsOneWidget);
       expect(find.textContaining(DemoStory.location.districtBn), findsNothing);
       // The field count follows the saved app language (Bangla by default).
-      expect(find.text('১টি জমি'), findsOneWidget);
+      expect(find.text('১টি জমি'), findsNothing);
       expect(find.text('3 Fields'), findsNothing);
     });
 

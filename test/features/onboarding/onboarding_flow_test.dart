@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:agri_guardian/app/route_paths.dart';
 import 'package:agri_guardian/core/localization/app_localizations.dart';
 import 'package:agri_guardian/features/onboarding/application/onboarding_providers.dart';
@@ -10,6 +12,7 @@ import 'package:agri_guardian/features/onboarding/presentation/screens/field_scr
 import 'package:agri_guardian/features/onboarding/presentation/screens/goal_screen.dart';
 import 'package:agri_guardian/features/onboarding/presentation/screens/language_screen.dart';
 import 'package:agri_guardian/features/onboarding/presentation/screens/location_screen.dart';
+import 'package:agri_guardian/screens/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -43,6 +46,12 @@ class _MemoryStore implements OnboardingStore {
     profile = const OnboardingProfile();
     complete = false;
   }
+}
+
+class _DelayedStore extends _MemoryStore {
+  final loaded = Completer<OnboardingProfile>();
+  @override
+  Future<OnboardingProfile> read() => loaded.future;
 }
 
 /// Mirrors `AgriGuardianApp`: the app locale follows the saved onboarding
@@ -114,6 +123,10 @@ void main() {
               const OnboardingAnalysisScreen(duration: Duration(seconds: 1)),
         ),
         GoRoute(path: RoutePaths.home, builder: (_, _) => const Text('HOME')),
+        GoRoute(
+          path: '/profile-test',
+          builder: (_, _) => const ProfileScreen(),
+        ),
       ],
     );
   }
@@ -147,6 +160,82 @@ void main() {
     await tester.pumpAndSettle();
     return router;
   }
+
+  testWidgets('saved farm information is displayed in Profile', (tester) async {
+    store.profile = const OnboardingProfile(
+      farmerName: 'রহিম',
+      farmSizeAcres: 2.5,
+      currentCrop: 'আমন ধান',
+      location: FarmLocation(mode: LocationMode.manual, label: 'ঢাকা'),
+    );
+    await pumpFlow(tester, initial: '/profile-test');
+    expect(find.text('রহিম'), findsOneWidget);
+    expect(find.text('২.৫'), findsOneWidget);
+    expect(find.text('আমন ধান'), findsOneWidget);
+    expect(find.text('কৃষক • ঢাকা'), findsOneWidget);
+    expect(find.text('6.2'), findsNothing);
+    expect(find.text('82'), findsNothing);
+  });
+
+  testWidgets('farm form restores asynchronously loaded saved data', (
+    tester,
+  ) async {
+    final delayed = _DelayedStore();
+    await pumpFlow(
+      tester,
+      initial: RoutePaths.onboardingFarm,
+      overrides: [onboardingStoreProvider.overrideWithValue(delayed)],
+    );
+    delayed.loaded.complete(
+      const OnboardingProfile(
+        farmerName: 'রহিম',
+        farmSizeAcres: 2.5,
+        currentCrop: 'আমন ধান',
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('রহিম'), findsOneWidget);
+    expect(find.text('2.5'), findsOneWidget);
+  });
+
+  testWidgets('Bangla decimal farm size is accepted and saved', (tester) async {
+    await pumpFlow(tester, initial: RoutePaths.onboardingFarm);
+    final fields = find.byType(TextField);
+    await tester.enterText(fields.at(0), 'রহিম');
+    await tester.enterText(fields.at(1), '২.৫');
+    await tester.tap(find.text('আমন ধান'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('পরবর্তী ধাপ'));
+    await tester.pumpAndSettle();
+    expect(store.profile.farmerName, 'রহিম');
+    expect(store.profile.farmSizeAcres, 2.5);
+    expect(store.profile.currentCrop, 'আমন ধান');
+  });
+
+  test(
+    'updating during storage loading preserves the saved farm profile',
+    () async {
+      final delayed = _DelayedStore();
+      final container = ProviderContainer(
+        overrides: [onboardingStoreProvider.overrideWithValue(delayed)],
+      );
+      addTearDown(container.dispose);
+      final saving = container
+          .read(onboardingControllerProvider.notifier)
+          .setLanguage(AppLanguage.english);
+      delayed.loaded.complete(
+        const OnboardingProfile(
+          farmerName: 'রহিম',
+          farmSizeAcres: 2.5,
+          currentCrop: 'আমন ধান',
+        ),
+      );
+      await saving;
+      expect(delayed.profile.farmerName, 'রহিম');
+      expect(delayed.profile.farmSizeAcres, 2.5);
+      expect(delayed.profile.language, AppLanguage.english);
+    },
+  );
 
   group('location step', () {
     testWidgets(
@@ -365,7 +454,7 @@ void main() {
       );
       await tester.pumpAndSettle();
       expect(
-        find.text('একটি সঠিক সংখ্যা লিখুন (ইংরেজি অঙ্কে)।'),
+        find.text('জমির পরিমাণ শূন্যের চেয়ে বড় একটি সংখ্যা হতে হবে।'),
         findsOneWidget,
       );
       expect(primary().onPressed, isNull);

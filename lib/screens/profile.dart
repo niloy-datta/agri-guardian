@@ -7,7 +7,6 @@ import '../core/localization/app_localizations.dart';
 import '../features/onboarding/application/onboarding_providers.dart';
 import '../features/onboarding/domain/onboarding_profile.dart';
 import '../services/firebase_service.dart';
-import '../shared/demo/showcase_story.dart';
 
 class ProfileScreen extends ConsumerWidget {
   final VoidCallback? onBack;
@@ -31,10 +30,12 @@ class ProfileScreen extends ConsumerWidget {
     var l10n = AppLocalizations.of(context);
     var language = AppLanguage.bangla;
     String? locationLabel;
+    OnboardingProfile? profile;
     // Some standalone showcase tests render this screen without a
     // ProviderScope. The real app always has one, but the fallback keeps the
     // screen renderable in isolation too.
     try {
+      profile = ref.watch(onboardingControllerProvider).valueOrNull;
       locationLabel = ref
           .watch(onboardingControllerProvider)
           .valueOrNull
@@ -164,13 +165,10 @@ class ProfileScreen extends ConsumerWidget {
 
                                     alignment: Alignment.center,
 
-                                    child: const Text(
-                                      'ND',
-                                      style: TextStyle(
-                                        color: green,
-                                        fontSize: 30,
-                                        fontWeight: FontWeight.w900,
-                                      ),
+                                    child: const Icon(
+                                      Icons.person,
+                                      color: green,
+                                      size: 38,
                                     ),
                                   );
                                 },
@@ -206,7 +204,7 @@ class ProfileScreen extends ConsumerWidget {
                       const SizedBox(height: 15),
 
                       Text(
-                        DemoStory.farmer.nameEn,
+                        profile?.farmerName ?? l10n.yourName,
                         style: TextStyle(
                           color: text,
                           fontSize: 26,
@@ -217,21 +215,23 @@ class ProfileScreen extends ConsumerWidget {
                       const SizedBox(height: 5),
 
                       Text(
-                        '${l10n.isBangla ? DemoStory.farmer.roleBn : DemoStory.farmer.roleEn} • ${locationLabel ?? (l10n.isBangla ? 'অবস্থান নির্বাচন করুন' : 'Choose location')}',
+                        '${l10n.isBangla ? 'কৃষক' : 'Farmer'} • ${locationLabel ?? (l10n.isBangla ? 'অবস্থান নির্বাচন করুন' : 'Choose location')}',
                         style: TextStyle(color: muted, fontSize: 13),
                       ),
 
                       const SizedBox(height: 15),
 
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                      Wrap(
+                        alignment: WrapAlignment.center,
+                        spacing: 8,
+                        runSpacing: 8,
                         children: [
                           _Pill(
                             icon: Icons.eco_rounded,
-                            text: l10n.fieldCount(DemoStory.fieldCount),
+                            text: profile?.currentCrop == null
+                                ? l10n.aboutYourFarm
+                                : l10n.cropName(profile!.currentCrop!),
                           ),
-
-                          const SizedBox(width: 8),
 
                           _Pill(
                             icon: Icons.workspace_premium_outlined,
@@ -251,7 +251,14 @@ class ProfileScreen extends ConsumerWidget {
                   children: [
                     Expanded(
                       child: _Stat(
-                        value: '6.2',
+                        value: profile?.farmSizeAcres == null
+                            ? '—'
+                            : l10n.digits(
+                                profile!.farmSizeAcres.toString().replaceFirst(
+                                  RegExp(r'\.0$'),
+                                  '',
+                                ),
+                              ),
                         label: l10n.acres,
                         icon: Icons.landscape_outlined,
                         color: green,
@@ -262,7 +269,7 @@ class ProfileScreen extends ConsumerWidget {
 
                     Expanded(
                       child: _Stat(
-                        value: '82',
+                        value: '—',
                         label: l10n.averageHealth,
                         icon: Icons.eco_outlined,
                         color: green,
@@ -273,7 +280,7 @@ class ProfileScreen extends ConsumerWidget {
 
                     Expanded(
                       child: _Stat(
-                        value: '12',
+                        value: '—',
                         label: l10n.scans,
                         icon: Icons.center_focus_strong,
                         color: blue,
@@ -328,7 +335,7 @@ class ProfileScreen extends ConsumerWidget {
                       _MenuItem(
                         icon: Icons.location_on_outlined,
                         title: l10n.farmLocation,
-                        value: l10n.bangladesh,
+                        value: locationLabel ?? '—',
                       ),
 
                       _Divider(),
@@ -512,7 +519,7 @@ class _Stat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 105,
+      constraints: const BoxConstraints(minHeight: 105),
       padding: const EdgeInsets.all(13),
 
       decoration: BoxDecoration(
@@ -523,11 +530,12 @@ class _Stat extends StatelessWidget {
       ),
 
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Icon(icon, color: color, size: 22),
 
-          const Spacer(),
+          const SizedBox(height: 12),
 
           Text(
             value,

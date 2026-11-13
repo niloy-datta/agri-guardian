@@ -32,15 +32,16 @@ class _OnboardingFarmInfoScreenState
   final _nameController = TextEditingController();
   final _sizeController = TextEditingController();
   String? _crop;
+  bool _restored = false;
 
-  @override
-  void initState() {
-    super.initState();
-    final saved = ref.read(onboardingControllerProvider).valueOrNull;
-    _nameController.text = saved?.farmerName ?? '';
-    final size = saved?.farmSizeAcres;
+  void _restoreSavedProfile() {
+    final saved = ref.watch(onboardingControllerProvider).valueOrNull;
+    if (_restored || saved == null) return;
+    _restored = true;
+    _nameController.text = saved.farmerName ?? '';
+    final size = saved.farmSizeAcres;
     if (size != null) _sizeController.text = _trim(size);
-    _crop = saved?.currentCrop;
+    _crop = saved.currentCrop;
   }
 
   static String _trim(double v) =>
@@ -54,10 +55,14 @@ class _OnboardingFarmInfoScreenState
   }
 
   double? get _parsedSize {
-    final raw = _sizeController.text.trim();
+    var raw = _sizeController.text.trim();
+    const digits = '০১২৩৪৫৬৭৮৯';
+    for (var i = 0; i < digits.length; i++) {
+      raw = raw.replaceAll(digits[i], '$i');
+    }
     if (raw.isEmpty) return null;
     final value = double.tryParse(raw);
-    if (value == null || value <= 0) return null;
+    if (value == null || !value.isFinite || value <= 0) return null;
     return value;
   }
 
@@ -67,6 +72,7 @@ class _OnboardingFarmInfoScreenState
       (_crop?.isNotEmpty ?? false);
 
   Future<void> _continue() async {
+    if (!_canContinue) return;
     await ref
         .read(onboardingControllerProvider.notifier)
         .setFarmInfo(
@@ -79,6 +85,7 @@ class _OnboardingFarmInfoScreenState
 
   @override
   Widget build(BuildContext context) {
+    _restoreSavedProfile();
     final l10n = AppLocalizations.of(context);
     final sizeText = _sizeController.text.trim();
     final sizeInvalid = sizeText.isNotEmpty && _parsedSize == null;
@@ -97,7 +104,7 @@ class _OnboardingFarmInfoScreenState
           label: l10n.yourName,
           hint: l10n.yourNameHint,
           icon: Icons.person_outline_rounded,
-          onChanged: (_) => setState(() {}),
+          onChanged: (_) => setState(() => _restored = true),
         ),
         const SizedBox(height: 16),
         OnboardingTextField(
@@ -108,7 +115,7 @@ class _OnboardingFarmInfoScreenState
           icon: Icons.crop_square_rounded,
           keyboardType: const TextInputType.numberWithOptions(decimal: true),
           suffix: l10n.acreUnit,
-          onChanged: (_) => setState(() {}),
+          onChanged: (_) => setState(() => _restored = true),
         ),
         if (sizeInvalid) ...[
           const SizedBox(height: 6),
@@ -140,7 +147,10 @@ class _OnboardingFarmInfoScreenState
               _CropChip(
                 label: l10n.cropName(crop),
                 selected: _crop == crop,
-                onTap: () => setState(() => _crop = crop),
+                onTap: () => setState(() {
+                  _restored = true;
+                  _crop = crop;
+                }),
               ),
           ],
         ),
