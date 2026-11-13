@@ -48,6 +48,8 @@ class _OnboardingLocationScreenState
   double? _latitude;
   double? _longitude;
   LocationFailure? _failure;
+  double? _accuracyMeters;
+  int _locationRequest = 0;
 
   @override
   void initState() {
@@ -68,35 +70,46 @@ class _OnboardingLocationScreenState
   }
 
   Future<void> _useDeviceLocation() async {
+    final request = ++_locationRequest;
     setState(() {
       _mode = LocationMode.device;
       _locating = true;
       _failure = null;
+      _latitude = null;
+      _longitude = null;
+      _accuracyMeters = null;
+      _areaController.clear();
     });
 
     final result = await ref.read(deviceLocationResolverProvider).resolve();
-    if (!mounted) return;
+    if (!mounted || request != _locationRequest) return;
 
     setState(() {
       _locating = false;
       if (result.isSuccess) {
         _latitude = result.latitude;
         _longitude = result.longitude;
+        _accuracyMeters = result.accuracyMeters;
+        _areaController.text = result.placeName ?? '';
       } else {
         _latitude = null;
         _longitude = null;
-        _failure = result.failure;
+        _failure = result.failure ?? LocationFailure.unavailable;
         _mode = LocationMode.manual;
       }
     });
   }
 
   void _chooseManually() {
+    ++_locationRequest;
     setState(() {
+      _locating = false;
       _mode = LocationMode.manual;
       _latitude = null;
       _longitude = null;
       _failure = null;
+      _accuracyMeters = null;
+      _areaController.clear();
     });
   }
 
@@ -106,6 +119,7 @@ class _OnboardingLocationScreenState
       !_locating;
 
   Future<void> _continue() async {
+    if (!_canContinue) return;
     final label = _areaController.text.trim().isNotEmpty
         ? _areaController.text.trim()
         : (_latitude != null
@@ -369,6 +383,17 @@ class _OnboardingLocationScreenState
                                     fontWeight: FontWeight.w700,
                                   ),
                                 ),
+                                if (_accuracyMeters != null &&
+                                    _accuracyMeters!.isFinite)
+                                  Text(
+                                    l10n.locationAccuracy(
+                                      _accuracyMeters!.round(),
+                                    ),
+                                    style: const TextStyle(
+                                      color: _muted,
+                                      fontSize: 11,
+                                    ),
+                                  ),
                               ],
                             ),
                           ),

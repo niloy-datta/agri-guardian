@@ -149,6 +149,41 @@ void main() {
   }
 
   group('location step', () {
+    testWidgets(
+      'GPS area name is filled and saved instead of the example district',
+      (tester) async {
+        await pumpFlow(
+          tester,
+          overrides: [
+            deviceLocationResolverProvider.overrideWithValue(
+              _StubLocationResolver(
+                const DeviceLocationResult.success(
+                  23.7900,
+                  90.4100,
+                  placeName: 'ঢাকা, বাংলাদেশ',
+                  accuracyMeters: 25,
+                ),
+              ),
+            ),
+          ],
+        );
+        await tester.tap(
+          find.byKey(const ValueKey('onboarding-use-my-location')),
+        );
+        await tester.pumpAndSettle();
+        expect(find.textContaining('কিশোরগঞ্জ'), findsNothing);
+        expect(
+          tester.widget<TextField>(find.byType(TextField)).controller!.text,
+          'ঢাকা, বাংলাদেশ',
+        );
+        expect(find.textContaining('±25'), findsOneWidget);
+        await tester.tap(find.byKey(const ValueKey('onboarding-continue')));
+        await tester.pumpAndSettle();
+        expect(store.profile.location?.label, 'ঢাকা, বাংলাদেশ');
+        expect(store.profile.location?.latitude, 23.7900);
+      },
+    );
+
     testWidgets('manual entry enables continue and is saved', (tester) async {
       await pumpFlow(tester);
 

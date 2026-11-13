@@ -1,5 +1,9 @@
+import '../../features/onboarding/data/device_location_resolver.dart';
+
 class LocationService {
   Future<Map<String, double>> getCurrentCoordinates() async {
-    return {'lat': 24.3636, 'lng': 90.4336}; // Kishoreganj / Mymensingh coords
+    final result = await GeolocatorLocationResolver().resolve();
+    if (!result.isSuccess) throw StateError('Device location unavailable');
+    return {'lat': result.latitude!, 'lng': result.longitude!};
   }
 }

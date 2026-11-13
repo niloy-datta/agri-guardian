@@ -737,13 +737,16 @@ class AppLocalizations {
       ? 'আবহাওয়া, ফসল ও মাঠের তথ্য আপনার এলাকার জন্য সাজাতে অবস্থান ঠিক করুন।'
       : 'Set your location to personalize weather, crops and field insights.';
   String get locatingFarm => isBangla
-      ? 'স্যাটেলাইট ও GPS দিয়ে আপনার খামার খোঁজা হচ্ছে…'
-      : 'Locating your farm via satellite & GPS…';
+      ? 'ডিভাইস থেকে আপনার বর্তমান অবস্থান নেওয়া হচ্ছে…'
+      : 'Getting your current device location…';
   String get locationFixed =>
-      isBangla ? 'অবস্থান ঠিক হয়েছে' : 'Location fixed';
+      isBangla ? 'ডিভাইসের অবস্থান পাওয়া গেছে' : 'Device location found';
+  String locationAccuracy(int meters) => isBangla
+      ? 'আনুমানিক নির্ভুলতা: ±$meters মিটার। এটি আপনার খামার কি না নিশ্চিত করুন।'
+      : 'Approximate accuracy: ±$meters m. Confirm this is your farm.';
   String get areaOrDistrictHint => isBangla
-      ? 'এলাকা বা জেলার নাম লিখুন (যেমন: কিশোরগঞ্জ)'
-      : 'Enter area or district (e.g. Kishoreganj)';
+      ? 'আপনার এলাকার নাম লিখুন বা নিশ্চিত করুন'
+      : 'Enter or confirm your area name';
   String get useMyLocation =>
       isBangla ? 'আমার অবস্থান ব্যবহার করুন' : 'Use My Location';
   String get chooseManually => isBangla ? 'নিজে বেছে নিন' : 'Choose Manually';

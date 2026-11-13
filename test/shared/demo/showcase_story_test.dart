@@ -271,7 +271,7 @@ void main() {
       expectNoLiveClaims();
     });
 
-    testWidgets('Profile: story farmer, district and field count', (
+    testWidgets('Profile: missing location does not claim the demo district', (
       tester,
     ) async {
       await pump(tester, const ProfileScreen());
@@ -279,10 +279,11 @@ void main() {
       expect(find.text(DemoStory.farmer.nameEn), findsOneWidget);
       expect(
         find.text(
-          '${DemoStory.farmer.roleBn} • ${DemoStory.location.districtBn}',
+          '${DemoStory.farmer.roleBn} • অবস্থান নির্বাচন করুন',
         ),
         findsOneWidget,
       );
+      expect(find.textContaining(DemoStory.location.districtBn), findsNothing);
       // The field count follows the saved app language (Bangla by default).
       expect(find.text('১টি জমি'), findsOneWidget);
       expect(find.text('3 Fields'), findsNothing);

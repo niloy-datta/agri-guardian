@@ -30,10 +30,16 @@ class ProfileScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     var l10n = AppLocalizations.of(context);
     var language = AppLanguage.bangla;
+    String? locationLabel;
     // Some standalone showcase tests render this screen without a
     // ProviderScope. The real app always has one, but the fallback keeps the
     // screen renderable in isolation too.
     try {
+      locationLabel = ref
+          .watch(onboardingControllerProvider)
+          .valueOrNull
+          ?.location
+          ?.label;
       language =
           ref.watch(onboardingControllerProvider).valueOrNull?.language ??
           AppLanguage.bangla;
@@ -211,7 +217,7 @@ class ProfileScreen extends ConsumerWidget {
                       const SizedBox(height: 5),
 
                       Text(
-                        '${l10n.isBangla ? DemoStory.farmer.roleBn : DemoStory.farmer.roleEn} • ${l10n.isBangla ? DemoStory.location.districtBn : DemoStory.location.districtEn}',
+                        '${l10n.isBangla ? DemoStory.farmer.roleBn : DemoStory.farmer.roleEn} • ${locationLabel ?? (l10n.isBangla ? 'অবস্থান নির্বাচন করুন' : 'Choose location')}',
                         style: TextStyle(color: muted, fontSize: 13),
                       ),
 
