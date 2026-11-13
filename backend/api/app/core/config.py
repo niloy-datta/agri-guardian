@@ -73,6 +73,67 @@ class Settings(BaseSettings):
     nasa_power_cache_dir: str = "cache/nasa_power"
     nasa_power_fixture_dir: str = "tests/fixtures/nasa_power"
 
+    # --- Extended data-provider integrations (app/integrations/*) ---
+    # Global kill switch: true means no integration client may touch the
+    # network. Explicit, never inferred from missing credentials.
+    integrations_offline: bool = False
+    integrations_timeout_seconds: float = 30.0
+    integrations_max_retries: int = 2
+
+    # NASA Earthdata (AppEEARS login uses username/password; Harmony and
+    # GES DISC use `nasa_earthdata_token` above).
+    nasa_earthdata_username: str = ""
+    nasa_earthdata_password: str = ""
+    appeears_base_url: str = "https://appeears.earthdatacloud.nasa.gov/api"
+    harmony_base_url: str = "https://harmony.earthdata.nasa.gov"
+    cmr_base_url: str = "https://cmr.earthdata.nasa.gov/search"
+    asf_base_url: str = "https://api.daac.asf.alaska.edu"
+    eonet_base_url: str = "https://eonet.gsfc.nasa.gov/api/v3"
+    gibs_base_url: str = "https://gibs.earthdata.nasa.gov"
+
+    # Copernicus Data Space Ecosystem (CDSE). `copernicus_client_id` /
+    # `copernicus_client_secret` above are an OAuth client created in the
+    # CDSE dashboard; they authenticate Sentinel Hub and openEO.
+    cdse_token_url: str = (
+        "https://identity.dataspace.copernicus.eu/auth/realms/CDSE/protocol/openid-connect/token"
+    )
+    cdse_stac_url: str = "https://catalogue.dataspace.copernicus.eu/stac"
+    cdse_odata_url: str = "https://catalogue.dataspace.copernicus.eu/odata/v1"
+    cdse_download_url: str = "https://download.dataspace.copernicus.eu/odata/v1"
+    cdse_openeo_url: str = "https://openeo.dataspace.copernicus.eu/openeo/1.2"
+    cdse_s3_endpoint: str = "https://eodata.dataspace.copernicus.eu"
+    sentinel_hub_base_url: str = "https://sh.dataspace.copernicus.eu"
+
+    earth_search_url: str = "https://earth-search.aws.element84.com/v1"
+    planetary_computer_stac_url: str = "https://planetarycomputer.microsoft.com/api/stac/v1"
+    planetary_computer_sas_url: str = "https://planetarycomputer.microsoft.com/api/sas/v1/sign"
+
+    # Google Earth Engine REST. Needs a Cloud project with the Earth
+    # Engine API enabled and a service-account key file (requires the
+    # optional `google-auth` package) - see integrations/gee/client.py.
+    gee_project: str = ""
+    gee_service_account_file: str = ""
+    gee_base_url: str = "https://earthengine.googleapis.com/v1"
+
+    soilgrids_rest_url: str = "https://rest.isric.org/soilgrids/v2.0"
+    soilgrids_wcs_url: str = "https://maps.isric.org/mapserv"
+    wosis_graphql_url: str = "https://graphql.isric.org/wosis/graphql"
+
+    # FAOSTAT's query API now requires a bearer token (verified: HTTP 401
+    # "Missing Authorization Header" without one). The open bulk-download
+    # files need no token and are the keyless path.
+    faostat_api_url: str = "https://faostatservices.fao.org/api/v1"
+    faostat_bulk_catalog_url: str = "https://bulks-faostat.fao.org/production/datasets_E.json"
+    faostat_token: str = ""
+
+    open_meteo_forecast_url: str = "https://api.open-meteo.com/v1/forecast"
+    open_meteo_archive_url: str = "https://archive-api.open-meteo.com/v1/archive"
+    open_meteo_flood_url: str = "https://flood-api.open-meteo.com/v1/flood"
+    open_meteo_api_key: str = ""
+
+    opentopography_api_key: str = ""
+    opentopography_base_url: str = "https://portal.opentopography.org/API"
+
     @property
     def is_local(self) -> bool:
         return self.app_env == "local"

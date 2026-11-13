@@ -23,6 +23,7 @@ dependencies = [
     # Mann-Whitney U test only (app/compute/agro.py) - a mature,
     # peer-reviewed implementation instead of a hand-written approximation.
     "scipy>=1.14,<2.0",
+    "tifffile>=2026.11.12",
 ]
 
 [project.optional-dependencies]

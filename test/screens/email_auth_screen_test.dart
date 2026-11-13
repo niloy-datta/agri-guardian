@@ -38,15 +38,10 @@ class _TestAdapter implements HttpClientAdapter {
 }
 
 class _MemoryOnboardingStore implements OnboardingStore {
-  OnboardingProfile profile;
-  bool complete;
-
-  _MemoryOnboardingStore({
-    this.profile = const OnboardingProfile(
-      language: AppLanguage.bangla,
-    ),
-    this.complete = false,
-  });
+  OnboardingProfile profile = const OnboardingProfile(
+    language: AppLanguage.bangla,
+  );
+  bool complete = false;
 
   @override
   Future<OnboardingProfile> read() async => profile;

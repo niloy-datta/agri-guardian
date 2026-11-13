@@ -1,6 +1,6 @@
 """Tests for the Firebase email OTP authentication module."""
 
-from unittest.mock import AsyncMock, MagicMock, patch
+from unittest.mock import MagicMock, patch
 
 import pytest
 from fastapi import HTTPException
@@ -123,11 +123,13 @@ class TestRequestCodeEndpoint:
     @pytest.mark.asyncio
     async def test_fails_when_smtp_unconfigured(self, auth_settings):
         auth_settings.smtp_host = ""
-        with patch("app.modules.email_auth.router.get_settings", return_value=auth_settings):
-            with patch("app.modules.email_auth.router._firebase_app"):
-                with pytest.raises(HTTPException) as exc_info:
-                    await request_code(EmailRequest(email="farmer@example.com", mode="login"))
-                assert exc_info.value.status_code == 503
+        with (
+            patch("app.modules.email_auth.router.get_settings", return_value=auth_settings),
+            patch("app.modules.email_auth.router._firebase_app"),
+            pytest.raises(HTTPException) as exc_info,
+        ):
+            await request_code(EmailRequest(email="farmer@example.com", mode="login"))
+        assert exc_info.value.status_code == 503
 
     @pytest.mark.asyncio
     async def test_register_mode_rejects_existing_user(self, auth_settings):
@@ -258,6 +260,6 @@ class TestSecurityDecodeToken:
             patch("app.core.security.get_settings", return_value=auth_settings),
             patch("firebase_admin.get_app"),
             patch("firebase_admin.auth.verify_id_token", return_value=payload),
+            pytest.raises(InvalidTokenError),
         ):
-            with pytest.raises(InvalidTokenError):
-                decode_firebase_token("fake_jwt")
+            decode_firebase_token("fake_jwt")
