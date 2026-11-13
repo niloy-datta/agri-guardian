@@ -6,7 +6,9 @@ import hmac
 import json
 import secrets
 import smtplib
+from collections.abc import Awaitable
 from email.message import EmailMessage
+from typing import cast
 
 import firebase_admin
 from fastapi import APIRouter, HTTPException
@@ -94,7 +96,9 @@ async def request_code(body: EmailRequest):
         raise HTTPException(429, "Please wait before requesting another code")
     code = f"{secrets.randbelow(1000000):06d}"
     # The code is stored only as a keyed digest. Redis expires it automatically.
-    await redis.hset(key, mapping={"digest": _digest(email, body.mode, code), "attempts": 0})
+    # redis-py shares command annotations with its synchronous client. This
+    # client is redis.asyncio.Redis, whose command results are awaitable.
+    await cast(Awaitable[int], redis.hset(key, mapping={"digest": _digest(email, body.mode, code), "attempts": 0}))
     await redis.expire(key, 600)
     try:
         await asyncio.to_thread(_send_email, email, code)
@@ -124,9 +128,9 @@ return 1
 async def verify_code(body: VerifyRequest):
     _firebase_app()
     email = str(body.email).strip().lower()
-    result = await get_redis_client().eval(
+    result = await cast(Awaitable[int], get_redis_client().eval(
         _VERIFY_SCRIPT, 1, _key(email, body.mode), _digest(email, body.mode, body.code)
-    )
+    ))
     if result != 1:
         raise HTTPException(400, "Invalid or expired code")
     if body.mode == "register":

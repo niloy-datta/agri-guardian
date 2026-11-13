@@ -13,8 +13,6 @@ Two jobs:
 
 from __future__ import annotations
 
-import importlib
-import pkgutil
 from logging.config import fileConfig
 
 from alembic import context
@@ -23,6 +21,7 @@ from sqlalchemy import engine_from_config, pool
 
 from app.core.config import get_settings
 from app.core.database import Base
+from app.core.model_discovery import import_models
 
 # Schemas this application owns. Anything else in the database (public,
 # PostGIS internals, extensions) is none of Alembic's business.
@@ -48,10 +47,7 @@ def _import_all_models() -> None:
     """Imports every module's `models.py` so `Base.metadata` is complete."""
     import app.modules as modules_package
 
-    for module_info in pkgutil.iter_modules(modules_package.__path__):
-        if not module_info.ispkg:
-            continue
-        importlib.import_module(f"{modules_package.__name__}.{module_info.name}.models")
+    import_models(modules_package)
 
 
 _import_all_models()
