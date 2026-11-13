@@ -1,0 +1,9 @@
+{
+  "@@locale": "en",
+  "appTitle": "AgriGuardian",
+  "home": "Home",
+  "scanPlant": "Scan Plant",
+  "myLands": "My Lands",
+  "weather": "Weather",
+  "marketPrice": "Market Price"
+}

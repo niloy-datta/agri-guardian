@@ -1,0 +1,269 @@
+{
+  "analysis_version": "1",
+  "data_status": "ok",
+  "generated_at": "2026-09-24T18:35:52.015986+00:00",
+  "location": {
+    "coordinate_meaning": "GeoNames PPPLA (seat of a first-order administrative division): Rajshahi city, the administrative seat of Rajshahi Division. This is a city-center point, not a farm, field, or research station.",
+    "latitude": 24.374,
+    "longitude": 88.60114
+  },
+  "mann_whitney": {
+    "data_status": "ok",
+    "p_value": 0.022316446745764853,
+    "u_statistic": 35.5
+  },
+  "missing_data": {
+    "days_missing_precipitation": 0,
+    "total_days_in_evidence_range": 9131
+  },
+  "nasa_retrieved_at": "2026-09-24T18:32:57.991011+00:00",
+  "nasa_source_url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=PRECTOTCORR%2CT2M_MAX%2CT2M_MIN&community=AG&longitude=88.60114&latitude=24.374&start=20010101&end=20251231&format=JSON&time-standard=LST",
+  "onset_definition": {
+    "dry_spell_max_days": 7,
+    "threshold_mm": 20.0,
+    "window_days": 7
+  },
+  "pilot_id": "rajshahi_aman",
+  "recent_median_onset_doy": 65,
+  "recent_onset_days": [
+    104,
+    42,
+    84,
+    85,
+    65,
+    52,
+    53,
+    59,
+    118,
+    29,
+    72,
+    15,
+    95
+  ],
+  "recent_period": {
+    "end_year": 2025,
+    "start_year": 2013
+  },
+  "reference_median_onset_doy": 91.5,
+  "reference_onset_days": [
+    116,
+    81,
+    67,
+    92,
+    77,
+    103,
+    104,
+    120,
+    83,
+    114,
+    89,
+    91
+  ],
+  "reference_period": {
+    "end_year": 2012,
+    "start_year": 2001
+  },
+  "sensitivity": [
+    {
+      "data_status": "ok",
+      "recent_median_onset_doy": 58,
+      "reference_median_onset_doy": 84.0,
+      "shift_days": -26.0,
+      "threshold_mm": 15.0
+    },
+    {
+      "data_status": "ok",
+      "recent_median_onset_doy": 65,
+      "reference_median_onset_doy": 91.5,
+      "shift_days": -26.5,
+      "threshold_mm": 20.0
+    },
+    {
+      "data_status": "ok",
+      "recent_median_onset_doy": 84,
+      "reference_median_onset_doy": 92.5,
+      "shift_days": -8.5,
+      "threshold_mm": 25.0
+    }
+  ],
+  "shift_days": -26.5,
+  "source_fixture_path": "D:\\github_repos\\niloy-datta\\agri_guardian\\demo_fixtures\\nasa_power\\27717dd3626e987c473672153816593e26f91d20bc97f419be81ea8686aa3435.json",
+  "source_fixture_sha256": "47a2fb929709a7732f64dad395b070bb222c6d1d959ef915398938a81cffb713",
+  "yearly_onset": {
+    "2001": {
+      "found": true,
+      "onset_date": "2001-04-26",
+      "onset_day_of_year": 116,
+      "reason": null,
+      "window_cumulative_mm": 26.15
+    },
+    "2002": {
+      "found": true,
+      "onset_date": "2002-03-22",
+      "onset_day_of_year": 81,
+      "reason": null,
+      "window_cumulative_mm": 21.14
+    },
+    "2003": {
+      "found": true,
+      "onset_date": "2003-03-08",
+      "onset_day_of_year": 67,
+      "reason": null,
+      "window_cumulative_mm": 21.04
+    },
+    "2004": {
+      "found": true,
+      "onset_date": "2004-04-01",
+      "onset_day_of_year": 92,
+      "reason": null,
+      "window_cumulative_mm": 22.02
+    },
+    "2005": {
+      "found": true,
+      "onset_date": "2005-03-18",
+      "onset_day_of_year": 77,
+      "reason": null,
+      "window_cumulative_mm": 28.85
+    },
+    "2006": {
+      "found": true,
+      "onset_date": "2006-04-13",
+      "onset_day_of_year": 103,
+      "reason": null,
+      "window_cumulative_mm": 21.12
+    },
+    "2007": {
+      "found": true,
+      "onset_date": "2007-04-14",
+      "onset_day_of_year": 104,
+      "reason": null,
+      "window_cumulative_mm": 22.37
+    },
+    "2008": {
+      "found": true,
+      "onset_date": "2008-04-29",
+      "onset_day_of_year": 120,
+      "reason": null,
+      "window_cumulative_mm": 23.42
+    },
+    "2009": {
+      "found": true,
+      "onset_date": "2009-03-24",
+      "onset_day_of_year": 83,
+      "reason": null,
+      "window_cumulative_mm": 29.14
+    },
+    "2010": {
+      "found": true,
+      "onset_date": "2010-04-24",
+      "onset_day_of_year": 114,
+      "reason": null,
+      "window_cumulative_mm": 23.14
+    },
+    "2011": {
+      "found": true,
+      "onset_date": "2011-03-30",
+      "onset_day_of_year": 89,
+      "reason": null,
+      "window_cumulative_mm": 28.23
+    },
+    "2012": {
+      "found": true,
+      "onset_date": "2012-03-31",
+      "onset_day_of_year": 91,
+      "reason": null,
+      "window_cumulative_mm": 38.55
+    },
+    "2013": {
+      "found": true,
+      "onset_date": "2013-04-14",
+      "onset_day_of_year": 104,
+      "reason": null,
+      "window_cumulative_mm": 23.57
+    },
+    "2014": {
+      "found": true,
+      "onset_date": "2014-02-11",
+      "onset_day_of_year": 42,
+      "reason": null,
+      "window_cumulative_mm": 22.02
+    },
+    "2015": {
+      "found": true,
+      "onset_date": "2015-03-25",
+      "onset_day_of_year": 84,
+      "reason": null,
+      "window_cumulative_mm": 25.19
+    },
+    "2016": {
+      "found": true,
+      "onset_date": "2016-03-25",
+      "onset_day_of_year": 85,
+      "reason": null,
+      "window_cumulative_mm": 20.83
+    },
+    "2017": {
+      "found": true,
+      "onset_date": "2017-03-06",
+      "onset_day_of_year": 65,
+      "reason": null,
+      "window_cumulative_mm": 21.18
+    },
+    "2018": {
+      "found": true,
+      "onset_date": "2018-02-21",
+      "onset_day_of_year": 52,
+      "reason": null,
+      "window_cumulative_mm": 21.61
+    },
+    "2019": {
+      "found": true,
+      "onset_date": "2019-02-22",
+      "onset_day_of_year": 53,
+      "reason": null,
+      "window_cumulative_mm": 24.04
+    },
+    "2020": {
+      "found": true,
+      "onset_date": "2020-02-28",
+      "onset_day_of_year": 59,
+      "reason": null,
+      "window_cumulative_mm": 23.759999999999998
+    },
+    "2021": {
+      "found": true,
+      "onset_date": "2021-04-28",
+      "onset_day_of_year": 118,
+      "reason": null,
+      "window_cumulative_mm": 27.650000000000002
+    },
+    "2022": {
+      "found": true,
+      "onset_date": "2022-01-29",
+      "onset_day_of_year": 29,
+      "reason": null,
+      "window_cumulative_mm": 33.56
+    },
+    "2023": {
+      "found": true,
+      "onset_date": "2023-03-13",
+      "onset_day_of_year": 72,
+      "reason": null,
+      "window_cumulative_mm": 21.13
+    },
+    "2024": {
+      "found": true,
+      "onset_date": "2024-01-15",
+      "onset_day_of_year": 15,
+      "reason": null,
+      "window_cumulative_mm": 84.63000000000001
+    },
+    "2025": {
+      "found": true,
+      "onset_date": "2025-04-05",
+      "onset_day_of_year": 95,
+      "reason": null,
+      "window_cumulative_mm": 37.08
+    }
+  }
+}

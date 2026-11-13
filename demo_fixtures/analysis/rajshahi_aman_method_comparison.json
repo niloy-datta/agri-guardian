@@ -1,0 +1,120 @@
+{
+  "generated_at": "2026-09-26T05:40:01.662400+00:00",
+  "han_agronomic_onset_v1": {
+    "data_status": "ok",
+    "false_onset_candidates_rejected_total": 9,
+    "method_id": "han_agronomic_onset_v1",
+    "method_source_doi": "10.1007/s10584-024-03736-z",
+    "no_onset_years": [],
+    "note": "Han et al. (2024) Rajshahi-fitted Dynamic-2 parameters, searched only within May 15-Oct 31. See docs/references/han_2024_nasa_power_transfer_review.md for the plausibility assessment against the paper's own reported Rajshahi behavior - not asserted here to be correct merely because its onset dates fall later in the year.",
+    "onset_month_distribution": {
+      "5": 19,
+      "6": 6
+    },
+    "parameters": {
+      "ads_mm": 11.0,
+      "aws_mm": 31.0,
+      "dry_day_threshold_mm": 1.0,
+      "lds_days": 6,
+      "lws_days": 3,
+      "post_onset_lookahead_days": 20,
+      "search_end_month_day": [
+        10,
+        31
+      ],
+      "search_start_month_day": [
+        5,
+        15
+      ],
+      "station_name": "Rajshahi",
+      "wet_day_threshold_mm": 1.0
+    },
+    "recent_median_onset_doy": 138,
+    "reference_median_onset_doy": 144.0,
+    "shift_days": -6.0,
+    "yearly_onset": {
+      "2001": "2001-05-19",
+      "2002": "2002-05-24",
+      "2003": "2003-06-04",
+      "2004": "2004-05-21",
+      "2005": "2005-06-29",
+      "2006": "2006-05-26",
+      "2007": "2007-06-03",
+      "2008": "2008-05-23",
+      "2009": "2009-05-23",
+      "2010": "2010-05-20",
+      "2011": "2011-05-19",
+      "2012": "2012-06-22",
+      "2013": "2013-05-23",
+      "2014": "2014-06-18",
+      "2015": "2015-05-15",
+      "2016": "2016-05-17",
+      "2017": "2017-05-15",
+      "2018": "2018-05-15",
+      "2019": "2019-05-21",
+      "2020": "2020-05-15",
+      "2021": "2021-05-25",
+      "2022": "2022-05-17",
+      "2023": "2023-06-14",
+      "2024": "2024-05-20",
+      "2025": "2025-05-16"
+    }
+  },
+  "pilot_id": "rajshahi_aman",
+  "recent_period": {
+    "end_year": 2025,
+    "start_year": 2013
+  },
+  "reference_period": {
+    "end_year": 2012,
+    "start_year": 2001
+  },
+  "source_fixture_sha256": "47a2fb929709a7732f64dad395b070bb222c6d1d959ef915398938a81cffb713",
+  "usable_rain_v1": {
+    "data_status": "ok",
+    "method_id": "usable_rain_v1",
+    "no_onset_years": [],
+    "note": "This project's own ad hoc definition, unrestricted by calendar season. Empirically detects Rajshahi's Feb-Apr pre-monsoon rainfall in most years, not the June monsoon transition relevant to Aman transplanting - see docs/references/nasa_dataset_strategy_audit.md.",
+    "onset_definition": {
+      "dry_spell_max_days": 7,
+      "threshold_mm": 20.0,
+      "window_days": 7
+    },
+    "onset_month_distribution": {
+      "1": 2,
+      "2": 4,
+      "3": 10,
+      "4": 9
+    },
+    "recent_median_onset_doy": 65,
+    "reference_median_onset_doy": 91.5,
+    "shift_days": -26.5,
+    "yearly_onset": {
+      "2001": "2001-04-26",
+      "2002": "2002-03-22",
+      "2003": "2003-03-08",
+      "2004": "2004-04-01",
+      "2005": "2005-03-18",
+      "2006": "2006-04-13",
+      "2007": "2007-04-14",
+      "2008": "2008-04-29",
+      "2009": "2009-03-24",
+      "2010": "2010-04-24",
+      "2011": "2011-03-30",
+      "2012": "2012-03-31",
+      "2013": "2013-04-14",
+      "2014": "2014-02-11",
+      "2015": "2015-03-25",
+      "2016": "2016-03-25",
+      "2017": "2017-03-06",
+      "2018": "2018-02-21",
+      "2019": "2019-02-22",
+      "2020": "2020-02-28",
+      "2021": "2021-04-28",
+      "2022": "2022-01-29",
+      "2023": "2023-03-13",
+      "2024": "2024-01-15",
+      "2025": "2025-04-05"
+    }
+  }
+}

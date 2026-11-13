@@ -1,0 +1,428 @@
+{
+  "boundary_clustering": [
+    {
+      "boundary_days": 1,
+      "found_year_count": 25,
+      "percentage": 20.0,
+      "years_within_boundary": [
+        2015,
+        2017,
+        2018,
+        2020,
+        2025
+      ]
+    },
+    {
+      "boundary_days": 2,
+      "found_year_count": 25,
+      "percentage": 28.000000000000004,
+      "years_within_boundary": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2020,
+        2022,
+        2025
+      ]
+    },
+    {
+      "boundary_days": 3,
+      "found_year_count": 25,
+      "percentage": 28.000000000000004,
+      "years_within_boundary": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2020,
+        2022,
+        2025
+      ]
+    },
+    {
+      "boundary_days": 5,
+      "found_year_count": 25,
+      "percentage": 44.0,
+      "years_within_boundary": [
+        2001,
+        2010,
+        2011,
+        2015,
+        2016,
+        2017,
+        2018,
+        2020,
+        2022,
+        2024,
+        2025
+      ]
+    },
+    {
+      "boundary_days": 7,
+      "found_year_count": 25,
+      "percentage": 52.0,
+      "years_within_boundary": [
+        2001,
+        2004,
+        2010,
+        2011,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2022,
+        2024,
+        2025
+      ]
+    }
+  ],
+  "decision_enabled_after_this_phase": false,
+  "decision_enabled_before_this_phase": false,
+  "generated_at": "2026-09-27T16:48:14.173714+00:00",
+  "independent_evidence_available": false,
+  "independent_evidence_files": [],
+  "independent_evidence_status": "no_independent_evidence_directory_present",
+  "method_id": "Rajshahi",
+  "pilot_id": "rajshahi_aman",
+  "published_parameters": {
+    "ads_mm": 11.0,
+    "aws_mm": 31.0,
+    "lds_days": 6,
+    "lws_days": 3,
+    "search_end_month_day": [
+      10,
+      31
+    ],
+    "search_start_month_day": [
+      5,
+      15
+    ],
+    "station_name": "Rajshahi"
+  },
+  "reproduced_from": "Independently recomputed in this phase from the raw committed NASA POWER fixture and the published Rajshahi Table 1 parameters - not copied from docs/references/han_2024_nasa_power_transfer_review.md.",
+  "reproduced_metrics": {
+    "data_status": "ok",
+    "false_onset_candidates_rejected_total": 9,
+    "mann_whitney_data_status": "ok",
+    "mann_whitney_u": 37.5,
+    "no_onset_years": [],
+    "p_value": 0.029295388050561064,
+    "recent_median_onset_doy": 138,
+    "recent_onset_days": [
+      143,
+      169,
+      135,
+      138,
+      135,
+      135,
+      141,
+      136,
+      145,
+      137,
+      165,
+      141,
+      136
+    ],
+    "reference_median_onset_doy": 144.0,
+    "reference_onset_days": [
+      139,
+      144,
+      155,
+      142,
+      180,
+      146,
+      154,
+      144,
+      143,
+      140,
+      139,
+      174
+    ],
+    "shift_days": -6.0,
+    "years_with_missing_data": []
+  },
+  "sensitivity": [
+    {
+      "changed_value": 4,
+      "false_onset_candidates_rejected_total": 12,
+      "label": "SENSITIVITY_EXPERIMENT_NOT_PUBLISHED_HAN_CONFIGURATION",
+      "no_onset_year_count": 0,
+      "original_value": 3,
+      "parameter_name": "lws_days",
+      "reason": "+1 day on the initial wet-spell length, to check whether the onset date is sensitive to a small change in how long the wet spell must persist.",
+      "resulting_data_status": "ok",
+      "resulting_mann_whitney_p_value": 0.028797365656441115,
+      "resulting_shift_days": -6.5
+    },
+    {
+      "changed_value": 2,
+      "false_onset_candidates_rejected_total": 6,
+      "label": "SENSITIVITY_EXPERIMENT_NOT_PUBLISHED_HAN_CONFIGURATION",
+      "no_onset_year_count": 0,
+      "original_value": 3,
+      "parameter_name": "lws_days",
+      "reason": "-1 day on the initial wet-spell length (floored at 1), the mirror-image perturbation of the +1 day case above.",
+      "resulting_data_status": "ok",
+      "resulting_mann_whitney_p_value": 0.10159999522597778,
+      "resulting_shift_days": -4.5
+    },
+    {
+      "changed_value": 37.2,
+      "false_onset_candidates_rejected_total": 9,
+      "label": "SENSITIVITY_EXPERIMENT_NOT_PUBLISHED_HAN_CONFIGURATION",
+      "no_onset_year_count": 0,
+      "original_value": 31.0,
+      "parameter_name": "aws_mm",
+      "reason": "+20% on the wet-spell cumulative rainfall requirement, to check sensitivity to the rainfall-amount threshold rather than only the day-count thresholds.",
+      "resulting_data_status": "ok",
+      "resulting_mann_whitney_p_value": 0.15674003255207508,
+      "resulting_shift_days": -3.5
+    },
+    {
+      "changed_value": 24.8,
+      "false_onset_candidates_rejected_total": 10,
+      "label": "SENSITIVITY_EXPERIMENT_NOT_PUBLISHED_HAN_CONFIGURATION",
+      "no_onset_year_count": 0,
+      "original_value": 31.0,
+      "parameter_name": "aws_mm",
+      "reason": "-20% on the wet-spell cumulative rainfall requirement, the mirror-image perturbation of the +20% case above.",
+      "resulting_data_status": "ok",
+      "resulting_mann_whitney_p_value": 0.038105499653102295,
+      "resulting_shift_days": -6.0
+    },
+    {
+      "changed_value": 7,
+      "false_onset_candidates_rejected_total": 5,
+      "label": "SENSITIVITY_EXPERIMENT_NOT_PUBLISHED_HAN_CONFIGURATION",
+      "no_onset_year_count": 0,
+      "original_value": 6,
+      "parameter_name": "lds_days",
+      "reason": "+1 day on the post-onset false-start dry-spell length. Han et al. (2024) themselves caution Rajshahi's fitted LDS=6 may be too strict; this checks whether making it stricter still changes the result materially.",
+      "resulting_data_status": "ok",
+      "resulting_mann_whitney_p_value": 0.016447699319363778,
+      "resulting_shift_days": -6.0
+    },
+    {
+      "changed_value": 5,
+      "false_onset_candidates_rejected_total": 9,
+      "label": "SENSITIVITY_EXPERIMENT_NOT_PUBLISHED_HAN_CONFIGURATION",
+      "no_onset_year_count": 0,
+      "original_value": 6,
+      "parameter_name": "lds_days",
+      "reason": "-1 day on the post-onset false-start dry-spell length - directly probes the paper's own flagged over-rejection concern by relaxing the parameter it named.",
+      "resulting_data_status": "ok",
+      "resulting_mann_whitney_p_value": 0.029295388050561064,
+      "resulting_shift_days": -6.0
+    },
+    {
+      "changed_value": 13.2,
+      "false_onset_candidates_rejected_total": 9,
+      "label": "SENSITIVITY_EXPERIMENT_NOT_PUBLISHED_HAN_CONFIGURATION",
+      "no_onset_year_count": 0,
+      "original_value": 11.0,
+      "parameter_name": "ads_mm",
+      "reason": "+20% on the false-start dry-spell rainfall ceiling.",
+      "resulting_data_status": "ok",
+      "resulting_mann_whitney_p_value": 0.029295388050561064,
+      "resulting_shift_days": -6.0
+    },
+    {
+      "changed_value": 8.8,
+      "false_onset_candidates_rejected_total": 9,
+      "label": "SENSITIVITY_EXPERIMENT_NOT_PUBLISHED_HAN_CONFIGURATION",
+      "no_onset_year_count": 0,
+      "original_value": 11.0,
+      "parameter_name": "ads_mm",
+      "reason": "-20% on the false-start dry-spell rainfall ceiling, the mirror-image perturbation of the +20% case above.",
+      "resulting_data_status": "ok",
+      "resulting_mann_whitney_p_value": 0.029295388050561064,
+      "resulting_shift_days": -6.0
+    }
+  ],
+  "source_fixture_sha256": "47a2fb929709a7732f64dad395b070bb222c6d1d959ef915398938a81cffb713",
+  "validation_reason_codes": [
+    "no_independent_evidence_source_available"
+  ],
+  "validation_status": "insufficient_evidence",
+  "validation_version": "1",
+  "yearly_onset": {
+    "2001": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "missing_data_status": "ok",
+      "onset_date": "2001-05-19",
+      "onset_day_of_year": 139
+    },
+    "2002": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "missing_data_status": "ok",
+      "onset_date": "2002-05-24",
+      "onset_day_of_year": 144
+    },
+    "2003": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "missing_data_status": "ok",
+      "onset_date": "2003-06-04",
+      "onset_day_of_year": 155
+    },
+    "2004": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "missing_data_status": "ok",
+      "onset_date": "2004-05-21",
+      "onset_day_of_year": 142
+    },
+    "2005": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "missing_data_status": "ok",
+      "onset_date": "2005-06-29",
+      "onset_day_of_year": 180
+    },
+    "2006": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "missing_data_status": "ok",
+      "onset_date": "2006-05-26",
+      "onset_day_of_year": 146
+    },
+    "2007": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "missing_data_status": "ok",
+      "onset_date": "2007-06-03",
+      "onset_day_of_year": 154
+    },
+    "2008": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "missing_data_status": "ok",
+      "onset_date": "2008-05-23",
+      "onset_day_of_year": 144
+    },
+    "2009": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "missing_data_status": "ok",
+      "onset_date": "2009-05-23",
+      "onset_day_of_year": 143
+    },
+    "2010": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "missing_data_status": "ok",
+      "onset_date": "2010-05-20",
+      "onset_day_of_year": 140
+    },
+    "2011": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "missing_data_status": "ok",
+      "onset_date": "2011-05-19",
+      "onset_day_of_year": 139
+    },
+    "2012": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "missing_data_status": "ok",
+      "onset_date": "2012-06-22",
+      "onset_day_of_year": 174
+    },
+    "2013": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "missing_data_status": "ok",
+      "onset_date": "2013-05-23",
+      "onset_day_of_year": 143
+    },
+    "2014": {
+      "false_onset_candidates_rejected": 4,
+      "found": true,
+      "missing_data_status": "ok",
+      "onset_date": "2014-06-18",
+      "onset_day_of_year": 169
+    },
+    "2015": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "missing_data_status": "ok",
+      "onset_date": "2015-05-15",
+      "onset_day_of_year": 135
+    },
+    "2016": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "missing_data_status": "ok",
+      "onset_date": "2016-05-17",
+      "onset_day_of_year": 138
+    },
+    "2017": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "missing_data_status": "ok",
+      "onset_date": "2017-05-15",
+      "onset_day_of_year": 135
+    },
+    "2018": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "missing_data_status": "ok",
+      "onset_date": "2018-05-15",
+      "onset_day_of_year": 135
+    },
+    "2019": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "missing_data_status": "ok",
+      "onset_date": "2019-05-21",
+      "onset_day_of_year": 141
+    },
+    "2020": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "missing_data_status": "ok",
+      "onset_date": "2020-05-15",
+      "onset_day_of_year": 136
+    },
+    "2021": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "missing_data_status": "ok",
+      "onset_date": "2021-05-25",
+      "onset_day_of_year": 145
+    },
+    "2022": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "missing_data_status": "ok",
+      "onset_date": "2022-05-17",
+      "onset_day_of_year": 137
+    },
+    "2023": {
+      "false_onset_candidates_rejected": 5,
+      "found": true,
+      "missing_data_status": "ok",
+      "onset_date": "2023-06-14",
+      "onset_day_of_year": 165
+    },
+    "2024": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "missing_data_status": "ok",
+      "onset_date": "2024-05-20",
+      "onset_day_of_year": 141
+    },
+    "2025": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "missing_data_status": "ok",
+      "onset_date": "2025-05-16",
+      "onset_day_of_year": 136
+    }
+  }
+}

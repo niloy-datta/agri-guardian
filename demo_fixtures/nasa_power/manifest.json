@@ -1,0 +1,35 @@
+{
+  "files": [
+    {
+      "dataset_id": "NASA/POWER Source Native Resolution Daily Data",
+      "endpoint": "/api/temporal/daily/point",
+      "file": "27717dd3626e987c473672153816593e26f91d20bc97f419be81ea8686aa3435.json",
+      "provider": "NASA POWER",
+      "request": {
+        "community": "AG",
+        "end": "20251231",
+        "format": "JSON",
+        "latitude": 24.374,
+        "longitude": 88.60114,
+        "parameters": [
+          "PRECTOTCORR",
+          "T2M_MAX",
+          "T2M_MIN"
+        ],
+        "start": "20010101",
+        "time-standard": "LST"
+      },
+      "retrieved_at": "2026-09-24T18:32:57.991011+00:00",
+      "sha256": "47a2fb929709a7732f64dad395b070bb222c6d1d959ef915398938a81cffb713",
+      "source_url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=PRECTOTCORR%2CT2M_MAX%2CT2M_MIN&community=AG&longitude=88.60114&latitude=24.374&start=20010101&end=20251231&format=JSON&time-standard=LST",
+      "synthetic": false,
+      "units": {
+        "PRECTOTCORR": "mm/day",
+        "T2M_MAX": "C",
+        "T2M_MIN": "C"
+      }
+    }
+  ],
+  "provider": "NASA POWER",
+  "synthetic": false
+}

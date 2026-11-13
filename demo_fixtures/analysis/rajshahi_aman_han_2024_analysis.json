@@ -1,0 +1,317 @@
+{
+  "analysis_version": "1",
+  "data_status": "ok",
+  "diagnostics": {
+    "earliest_onset": "2001-05-19",
+    "false_onset_candidates_rejected_total": 9,
+    "latest_onset": "2025-05-16",
+    "no_onset_year_count": 0,
+    "no_onset_years": [],
+    "onset_month_distribution": {
+      "5": 19,
+      "6": 6
+    },
+    "onsets_within_3_days_of_search_start": 7,
+    "total_years": 25,
+    "years_with_missing_data": []
+  },
+  "generated_at": "2026-09-26T05:39:02.928952+00:00",
+  "mann_whitney": {
+    "data_status": "ok",
+    "p_value": 0.029295388050561064,
+    "u_statistic": 37.5
+  },
+  "method_id": "han_agronomic_onset_v1",
+  "method_source_doi": "10.1007/s10584-024-03736-z",
+  "method_version": "1",
+  "nasa_retrieved_at": "2026-09-24T18:32:57.991011+00:00",
+  "nasa_source_url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=PRECTOTCORR%2CT2M_MAX%2CT2M_MIN&community=AG&longitude=88.60114&latitude=24.374&start=20010101&end=20251231&format=JSON&time-standard=LST",
+  "parameters": {
+    "ads_mm": 11.0,
+    "aws_mm": 31.0,
+    "dry_day_threshold_mm": 1.0,
+    "lds_days": 6,
+    "lws_days": 3,
+    "post_onset_lookahead_days": 20,
+    "search_end_month_day": [
+      10,
+      31
+    ],
+    "search_start_month_day": [
+      5,
+      15
+    ],
+    "station_name": "Rajshahi",
+    "wet_day_threshold_mm": 1.0
+  },
+  "pilot_id": "rajshahi_aman",
+  "recent_median_onset_doy": 138,
+  "recent_onset_days": [
+    143,
+    169,
+    135,
+    138,
+    135,
+    135,
+    141,
+    136,
+    145,
+    137,
+    165,
+    141,
+    136
+  ],
+  "recent_period": {
+    "end_year": 2025,
+    "start_year": 2013
+  },
+  "reference_median_onset_doy": 144.0,
+  "reference_onset_days": [
+    139,
+    144,
+    155,
+    142,
+    180,
+    146,
+    154,
+    144,
+    143,
+    140,
+    139,
+    174
+  ],
+  "reference_period": {
+    "end_year": 2012,
+    "start_year": 2001
+  },
+  "shift_days": -6.0,
+  "source_fixture_path": "D:\\github_repos\\niloy-datta\\agri_guardian\\demo_fixtures\\nasa_power\\27717dd3626e987c473672153816593e26f91d20bc97f419be81ea8686aa3435.json",
+  "source_fixture_sha256": "47a2fb929709a7732f64dad395b070bb222c6d1d959ef915398938a81cffb713",
+  "yearly_onset": {
+    "2001": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "initial_wet_spell_rainfall_mm": 34.22,
+      "missing_data_status": "ok",
+      "onset_date": "2001-05-19",
+      "onset_day_of_year": 139,
+      "reason": null
+    },
+    "2002": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "initial_wet_spell_rainfall_mm": 39.34,
+      "missing_data_status": "ok",
+      "onset_date": "2002-05-24",
+      "onset_day_of_year": 144,
+      "reason": null
+    },
+    "2003": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "initial_wet_spell_rainfall_mm": 34.12,
+      "missing_data_status": "ok",
+      "onset_date": "2003-06-04",
+      "onset_day_of_year": 155,
+      "reason": null
+    },
+    "2004": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "initial_wet_spell_rainfall_mm": 43.04,
+      "missing_data_status": "ok",
+      "onset_date": "2004-05-21",
+      "onset_day_of_year": 142,
+      "reason": null
+    },
+    "2005": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "initial_wet_spell_rainfall_mm": 48.69,
+      "missing_data_status": "ok",
+      "onset_date": "2005-06-29",
+      "onset_day_of_year": 180,
+      "reason": null
+    },
+    "2006": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "initial_wet_spell_rainfall_mm": 35.79,
+      "missing_data_status": "ok",
+      "onset_date": "2006-05-26",
+      "onset_day_of_year": 146,
+      "reason": null
+    },
+    "2007": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "initial_wet_spell_rainfall_mm": 31.53,
+      "missing_data_status": "ok",
+      "onset_date": "2007-06-03",
+      "onset_day_of_year": 154,
+      "reason": null
+    },
+    "2008": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "initial_wet_spell_rainfall_mm": 43.54,
+      "missing_data_status": "ok",
+      "onset_date": "2008-05-23",
+      "onset_day_of_year": 144,
+      "reason": null
+    },
+    "2009": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "initial_wet_spell_rainfall_mm": 52.31,
+      "missing_data_status": "ok",
+      "onset_date": "2009-05-23",
+      "onset_day_of_year": 143,
+      "reason": null
+    },
+    "2010": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "initial_wet_spell_rainfall_mm": 40.620000000000005,
+      "missing_data_status": "ok",
+      "onset_date": "2010-05-20",
+      "onset_day_of_year": 140,
+      "reason": null
+    },
+    "2011": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "initial_wet_spell_rainfall_mm": 33.08,
+      "missing_data_status": "ok",
+      "onset_date": "2011-05-19",
+      "onset_day_of_year": 139,
+      "reason": null
+    },
+    "2012": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "initial_wet_spell_rainfall_mm": 47.84,
+      "missing_data_status": "ok",
+      "onset_date": "2012-06-22",
+      "onset_day_of_year": 174,
+      "reason": null
+    },
+    "2013": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "initial_wet_spell_rainfall_mm": 40.14,
+      "missing_data_status": "ok",
+      "onset_date": "2013-05-23",
+      "onset_day_of_year": 143,
+      "reason": null
+    },
+    "2014": {
+      "false_onset_candidates_rejected": 4,
+      "found": true,
+      "initial_wet_spell_rainfall_mm": 52.129999999999995,
+      "missing_data_status": "ok",
+      "onset_date": "2014-06-18",
+      "onset_day_of_year": 169,
+      "reason": null
+    },
+    "2015": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "initial_wet_spell_rainfall_mm": 36.46,
+      "missing_data_status": "ok",
+      "onset_date": "2015-05-15",
+      "onset_day_of_year": 135,
+      "reason": null
+    },
+    "2016": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "initial_wet_spell_rainfall_mm": 34.58,
+      "missing_data_status": "ok",
+      "onset_date": "2016-05-17",
+      "onset_day_of_year": 138,
+      "reason": null
+    },
+    "2017": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "initial_wet_spell_rainfall_mm": 62.75999999999999,
+      "missing_data_status": "ok",
+      "onset_date": "2017-05-15",
+      "onset_day_of_year": 135,
+      "reason": null
+    },
+    "2018": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "initial_wet_spell_rainfall_mm": 36.92,
+      "missing_data_status": "ok",
+      "onset_date": "2018-05-15",
+      "onset_day_of_year": 135,
+      "reason": null
+    },
+    "2019": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "initial_wet_spell_rainfall_mm": 31.21,
+      "missing_data_status": "ok",
+      "onset_date": "2019-05-21",
+      "onset_day_of_year": 141,
+      "reason": null
+    },
+    "2020": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "initial_wet_spell_rainfall_mm": 44.99,
+      "missing_data_status": "ok",
+      "onset_date": "2020-05-15",
+      "onset_day_of_year": 136,
+      "reason": null
+    },
+    "2021": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "initial_wet_spell_rainfall_mm": 86.92,
+      "missing_data_status": "ok",
+      "onset_date": "2021-05-25",
+      "onset_day_of_year": 145,
+      "reason": null
+    },
+    "2022": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "initial_wet_spell_rainfall_mm": 34.33,
+      "missing_data_status": "ok",
+      "onset_date": "2022-05-17",
+      "onset_day_of_year": 137,
+      "reason": null
+    },
+    "2023": {
+      "false_onset_candidates_rejected": 5,
+      "found": true,
+      "initial_wet_spell_rainfall_mm": 45.58,
+      "missing_data_status": "ok",
+      "onset_date": "2023-06-14",
+      "onset_day_of_year": 165,
+      "reason": null
+    },
+    "2024": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "initial_wet_spell_rainfall_mm": 37.99,
+      "missing_data_status": "ok",
+      "onset_date": "2024-05-20",
+      "onset_day_of_year": 141,
+      "reason": null
+    },
+    "2025": {
+      "false_onset_candidates_rejected": 0,
+      "found": true,
+      "initial_wet_spell_rainfall_mm": 38.53,
+      "missing_data_status": "ok",
+      "onset_date": "2025-05-16",
+      "onset_day_of_year": 136,
+      "reason": null
+    }
+  }
+}
