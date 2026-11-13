@@ -1,46 +1,184 @@
 # AgriGuardian
 
-A new Flutter project.
+### Farmer-centered crop rotation decisions, informed by Earth observation
 
-## Agricultural and Earth observation data
+**NASA Space Apps Challenge 2026 · [Field Shift: Adapting Farms with NASA Data](https://www.spaceappschallenge.org/2026/challenges/adapting-farms-with-nasa-data/) · Bangladesh**
 
-AgriGuardian is a crop-rotation decision-support prototype. The code uses NASA
-POWER historical rainfall and temperature in its advisory analysis, alongside
-sourced crop-calendar and location references. The rotation service also has
-paths for BAMIS calendars, FAO GAEZ suitability, SoilGrids and NASA POWER
-monthly climate evidence. Availability depends on the location and provider;
-missing evidence is reported rather than replaced with invented observations.
+AgriGuardian is a bilingual agricultural decision-support prototype that brings
+regional crop calendars, soil information, farmer priorities and NASA climate
+data together. It aims to help farmers and agricultural advisers explore crop
+rotations under changing rainfall, temperature and water conditions.
 
-The recorded acquisition run on **13 November 2026** retrieved samples from
-NASA POWER Daily, NASA POWER Monthly, ISRIC SoilGrids and FAOSTAT. A retrieved
-sample alone does not establish a complete, validated production integration.
+> **Project status:** Prototype under development. Satellite products and
+> modelled datasets describe areas and historical periods, not exact conditions
+> in an individual field. Results require review by farmers and local experts.
 
-| Data | Recorded status in that run |
+## The challenge
+
+Farmers must choose crops and planting windows while balancing seasonal timing,
+irrigation access, soil health and uncertain weather. In Bangladesh, fragmented
+plots and regional differences make it especially important to distinguish
+local observations from information reported at satellite-grid scale.
+
+AgriGuardian explores this problem through a Flutter app and FastAPI backend.
+Its Rajshahi Aman pilot analyses historical NASA POWER rainfall and temperature
+against a sourced national rice calendar. A separate rotation service assembles
+regional crop calendars and suitability evidence for scenario exploration.
+
+## What the prototype does
+
+- Collects farmer-provided location, farm information and preferences through
+  Bangla and English onboarding.
+- Analyses historical rainfall and temperatures using NASA POWER, with source,
+  period and location context.
+- Resolves Bangladesh locations and retrieves regional BAMIS crop-calendar
+  information for rotation scenarios.
+- Compares feasible crop combinations using calendar overlap, available water
+  evidence, irrigation access and supported farmer priorities.
+- Reports evidence gaps and uncertainty instead of inventing values. The
+  Rajshahi pilot blocks actionable date recommendations when its method has not
+  passed the required transfer validation.
+
+The rotation service is a backend capability; an end-to-end farmer-facing
+rotation journey has not yet been verified. Existing weather and satellite
+showcase screens include demo content and should be interpreted as labelled.
+
+## Data and APIs
+
+The recorded acquisition run was performed on **13 November 2026**. It is a
+snapshot, not a live health check. “Acquired” means the run recorded a sample;
+it does not alone prove a validated, production-ready integration.
+
+### Evidence used or requested by the prototype
+
+| Dataset / API | Why it is relevant | Current use and limitations |
+| --- | --- | --- |
+| [NASA POWER Daily](https://power.larc.nasa.gov/docs/services/api/temporal/daily/) | Historical precipitation and temperature for monsoon and growing-condition analysis. | The advisory client requests `PRECTOTCORR`, `T2M_MAX` and `T2M_MIN`; samples were acquired. Meteorology is approximately 0.5° × 0.625° and is not a field measurement. |
+| [NASA POWER Monthly and Climatology](https://power.larc.nasa.gov/docs/services/api/temporal/) | Seasonal climate context for exploring crop choices. | Monthly samples were acquired; the rotation service requests climatology as contextual evidence. It is **not currently an input to rotation ranking**. |
+| [BAMIS / DAE crop-weather calendars](https://www.bamis.gov.bd/) | Regional crop windows, normal rainfall and water requirements support seasonal and irrigation checks. | The rotation engine uses available calendar rows; uncertainties must be reviewed for each region. The recorded acquisition run did not check this reference dataset. |
+| [FAO GAEZ v5](https://gaez.fao.org/) | Crop suitability provides context when comparing scenarios. | Available rainfed and irrigated indices inform screening and tie-breaking. Values are modelled, not observed farm yields; availability varies by crop. The recorded run did not check this dataset. |
+| [ISRIC SoilGrids](https://soilgrids.org/) | Modelled soil properties provide context, including pH, organic carbon and nitrogen. | A sample was acquired. The rotation service requests 0–5 cm estimates as context; it does not currently apply soil-suitability thresholds. |
+| [BRRI / BBS rice calendar](docs/references/rajshahi_aman_pilot.md) | A sourced baseline for comparing the Aman rice transplanting period. | Used in the Rajshahi pilot as a national reference, not a district-specific recommendation. |
+| [GeoNames](https://www.geonames.org/1185128/) and [Bangladesh location references](backend/api/app/integrations/reference/bd_locations.py) | Administrative location context helps select the relevant regional evidence. | The historical pilot uses a Rajshahi city-centre coordinate, not a farm coordinate. |
+| Farmer-provided field and crop information | Farmer inputs provide location, history, irrigation access and priorities. | Inputs are self-reported; onboarding data is stored locally on the device. Backend field-scoped rotation endpoints require authentication. |
+| [FAOSTAT](https://www.fao.org/faostat/) | National crop production and yield statistics provide agricultural context. | A Bangladesh sample was acquired. National statistics must not be presented as field-level yield predictions. |
+
+NASA POWER data is drawn from Earth observations and modelling; its grid values
+are not direct measurements from a farmer's field. The current rotation engine
+uses BAMIS calendar/water evidence, GAEZ suitability and supported preferences
+for screening and ranking. SoilGrids and NASA POWER climatology are returned as
+context and do not currently change that ranking.
+
+### Registered for further integration
+
+The project catalogues the following products for possible scientific workflows.
+The recorded run discovered their catalogue entries or scenes; **it did not
+verify acquisition of their observations**:
+
+| Products | Intended purpose |
 | --- | --- |
-| NASA POWER Daily and Monthly; ISRIC SoilGrids; FAOSTAT | Sample data acquired |
-| BRRI/BBS crop calendar; GeoNames locations; farmer field and crop history; FAO GAEZ; BAMIS/DAE calendar; FAO crop calendar | Not checked by that acquisition run; some reference data or service code is present in the project |
-| NASA HLS Sentinel-2 and Landsat; IMERG Final and Late; SMAP L3 and L4; MODIS MOD13Q1, MCD12Q2, MCD12Q1, MOD16A2GF and MOD11A1; OPERA DSWx; NASADEM; GLDAS; FLDAS; VIIRS VJ113A1; USGS Landsat Collection 2; Copernicus Sentinel-1 and Sentinel-2 | Catalogue records discovered; actual observations were not verified as acquired in that run |
-| NASA POWER CMIP6 | The recorded requests returned no usable data |
+| NASA HLS Sentinel-2 and Landsat; MODIS MOD13Q1; VIIRS VJ113A1; USGS Landsat Collection 2; Copernicus Sentinel-2 | Vegetation condition and seasonal change. |
+| NASA MODIS MCD12Q2 and MCD12Q1 | Phenology and land-cover context. |
+| NASA IMERG Final and Late | Historical and near-recent rainfall context; the products have different latencies. |
+| NASA SMAP L3 and L4; GLDAS; FLDAS | Surface or modelled soil moisture and water-history context. |
+| NASA MODIS MOD16A2GF and MOD11A1 | Evapotranspiration and land-surface temperature context. |
+| NASA OPERA DSWx; NASADEM; Copernicus Sentinel-1 | Surface water, terrain and radar-based landscape context. |
 
-These are historical results, not current provider health or proof that all 30
-datasets are connected to farmer decisions. See the [30-dataset evidence
-matrix](docs/evidence/dataset_matrix.md), [recorded acquisition
-results](docs/evidence/live_acquisition.json), and the [dataset
-catalogue](nasa_bangladesh_agriculture_datasets_updated.md) for product names,
-intended uses, limitations and sources. Satellite and model grids represent
-areas larger than individual farms; farmers should review results with local
-agricultural expertise.
+NASA POWER CMIP6 returned **no usable values** in the recorded Bangladesh
+requests. FAO's Global Crop Calendar is registered as a reference, but that
+acquisition run did not check it. Discovery is not the same as downloading,
+validating or integrating observations. Access to some products requires NASA
+Earthdata or Copernicus credentials and appropriate permissions.
 
-## Getting Started
+See the [30-dataset evidence matrix](docs/evidence/dataset_matrix.md), the
+[recorded acquisition results](docs/evidence/live_acquisition.json) and the
+[dataset catalogue](nasa_bangladesh_agriculture_datasets_updated.md) for
+product-level status, sources and limitations. The authenticated
+`GET /api/v1/intelligence/datasets` endpoint exposes recorded dataset status;
+it does not represent a live monitoring check.
 
-This project is a starting point for a Flutter application.
+## Scientific approach and limitations
 
-A few resources to get you started if this is your first Flutter project:
+1. Resolve the location and identify the relevant regional crop calendar.
+2. Retrieve available climate, soil and crop-suitability evidence with source
+   and scale context.
+3. Screen crop combinations using stated calendar and irrigation constraints.
+4. Compare feasible scenarios using supported farmer priorities and report
+   unsupported priorities or insufficient evidence explicitly.
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+The current engine does not make validated field-level yield, profit or soil
+improvement predictions. NASA POWER climatology and SoilGrids currently provide
+context rather than driving its ranking. The [Rajshahi pilot source
+record](docs/references/rajshahi_aman_pilot.md) and [method transfer
+review](docs/references/han_2024_nasa_power_transfer_review.md) document the
+assumptions and safety gate. The pilot point is a city centre, not a farm.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Technology
+
+| Layer | Technology |
+| --- | --- |
+| Farmer app | Flutter, Dart, Riverpod and GoRouter |
+| API and analysis | Python, FastAPI and deterministic agricultural calculations |
+| Storage and services | PostgreSQL/PostGIS, Redis and Alembic |
+| Authentication | Firebase Authentication support; Supabase configuration is also present |
+| External data | NASA POWER, FAO GAEZ, SoilGrids and other catalogued providers |
+
+## Run locally
+
+Requirements: Flutter SDK, Docker with Compose, and Python 3.12+ for local
+backend development. Copy the example configuration and start the services
+from the repository root:
+
+```powershell
+Copy-Item .env.example .env
+docker compose up --build
+```
+
+Set the credentials needed for the features you intend to use in your local
+`.env`; never commit credentials. The API container applies migrations at
+startup. For the Flutter application:
+
+```powershell
+flutter pub get
+flutter run
+```
+
+Device networking and Firebase configuration depend on your environment. NASA
+POWER's Daily Point API does not require the `api.nasa.gov` key; other data
+providers have their own authentication requirements.
+
+## Tests
+
+```powershell
+flutter analyze --no-fatal-infos
+flutter test
+
+cd backend/api
+python -m pip install -e ".[dev]"
+ruff check .
+mypy app
+pytest -q
+```
+
+Backend integration tests need PostgreSQL/PostGIS and Redis; unavailable local
+services may cause integration tests to be skipped. CI provides both services.
+Check the actual test and CI results for the commit being evaluated.
+
+## Project documentation
+
+- [Rajshahi Aman pilot and source record](docs/references/rajshahi_aman_pilot.md)
+- [Dataset evidence matrix](docs/evidence/dataset_matrix.md)
+- [Dataset catalogue and source links](nasa_bangladesh_agriculture_datasets_updated.md)
+- [Backend architecture](docs/BACKEND_ARCHITECTURE.md)
+- [Contribution guidance](CONTRIBUTING.md)
+
+## Attribution and responsible use
+
+Sources, product versions and limitations should accompany any material used
+in a submission. The repository does not currently include a project-wide
+license file; the team must confirm its rights and document applicable
+third-party licenses before submission. AI-assisted contributions and any
+pre-existing work should be disclosed according to the event requirements.
+
+AgriGuardian supports exploration and discussion with agricultural experts; it
+does not replace local advice or guarantee crop outcomes.
