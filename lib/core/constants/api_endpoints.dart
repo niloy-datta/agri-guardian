@@ -25,6 +25,19 @@ class ApiEndpoints {
 
   static String cropCycle(String cycleId) => '/crop-cycles/$cycleId';
 
+  // --- Nationwide intelligence and crop rotation (backend/api/app/modules/rotation) ---
+  static const String intelligenceDatasets = '/intelligence/datasets';
+  static const String intelligenceDistricts = '/intelligence/locations/districts';
+  static const String intelligenceResolve = '/intelligence/locations/resolve';
+  static const String intelligenceCalendars = '/intelligence/calendars';
+  static const String intelligenceRotation = '/intelligence/rotation-scenarios';
+
+  static String fieldRotationProfile(String fieldId) =>
+      '/fields/$fieldId/rotation-profile';
+
+  static String fieldRotationScenarios(String fieldId) =>
+      '/fields/$fieldId/rotation-scenarios';
+
   // --- Marketplace (Phase 12) ---
   static const String marketplaceListings = '/marketplace/listings';
 

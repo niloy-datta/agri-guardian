@@ -96,6 +96,22 @@ class ApiClient {
     }
   }
 
+  Future<dynamic> put(
+    String path, {
+    Map<String, dynamic>? data,
+  }) async {
+    try {
+      final response = await _dio.put<dynamic>(
+        path,
+        data: data,
+        options: await _authorizedOptions(),
+      );
+      return response.data;
+    } on DioException catch (error) {
+      throw _translate(error);
+    }
+  }
+
   NetworkException _translate(DioException error) {
     switch (error.type) {
       case DioExceptionType.connectionTimeout:

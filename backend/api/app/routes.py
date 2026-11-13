@@ -18,6 +18,8 @@ from app.modules.health.router import router as health_router
 from app.modules.identity.router import router as identity_router
 from app.modules.marketplace.router import router as marketplace_router
 from app.modules.orders.router import router as orders_router
+from app.modules.rotation.router import field_router as field_rotation_router
+from app.modules.rotation.router import router as intelligence_router
 
 api_router = APIRouter()
 
@@ -37,3 +39,6 @@ api_router.include_router(advisory_router)
 api_router.include_router(marketplace_router)
 api_router.include_router(bidding_router)
 api_router.include_router(orders_router)
+# Nationwide location intelligence, dataset provenance and rotation scenarios.
+api_router.include_router(intelligence_router)
+api_router.include_router(field_rotation_router)

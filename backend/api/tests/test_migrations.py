@@ -26,6 +26,7 @@ EXPECTED_TABLES = {
     ("farm", "farmer_profiles"),
     ("farm", "fields"),
     ("farm", "crop_cycles"),
+    ("farm", "rotation_profiles"),
     ("commerce", "buyer_profiles"),
     ("commerce", "listings"),
     ("commerce", "bids"),

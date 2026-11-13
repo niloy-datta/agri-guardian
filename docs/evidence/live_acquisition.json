@@ -1,0 +1,857 @@
+{
+  "generated_at": "2026-11-13T07:19:30.432916+00:00",
+  "credentials_present": {
+    "earthdata_token": false,
+    "earthdata_login": false,
+    "copernicus_oauth": false,
+    "faostat_token": false
+  },
+  "results": {
+    "01": {
+      "key": "power_daily",
+      "status": "ACQUIRED",
+      "points": {
+        "Rajshahi": {
+          "lat": 24.36962,
+          "lon": 88.60748,
+          "days": 61,
+          "rain_total_mm_jun_jul_2024": 514.9,
+          "missing_days": 0,
+          "first": [
+            "2024-06-01",
+            1.43,
+            36.85,
+            26.95
+          ]
+        },
+        "Dhaka": {
+          "lat": 23.81093,
+          "lon": 90.36542,
+          "days": 61,
+          "rain_total_mm_jun_jul_2024": 872.7,
+          "missing_days": 0,
+          "first": [
+            "2024-06-01",
+            1.94,
+            33.33,
+            26.86
+          ]
+        },
+        "Chattogram": {
+          "lat": 22.4875,
+          "lon": 91.96333,
+          "days": 61,
+          "rain_total_mm_jun_jul_2024": 1229.8,
+          "missing_days": 0,
+          "first": [
+            "2024-06-01",
+            8.78,
+            32.52,
+            27.98
+          ]
+        },
+        "Khulna": {
+          "lat": 22.5,
+          "lon": 89.33333,
+          "days": 61,
+          "rain_total_mm_jun_jul_2024": 591.4,
+          "missing_days": 0,
+          "first": [
+            "2024-06-01",
+            7.96,
+            34.33,
+            26.87
+          ]
+        },
+        "Barishal": {
+          "lat": 22.8,
+          "lon": 90.5,
+          "days": 61,
+          "rain_total_mm_jun_jul_2024": 715.6,
+          "missing_days": 0,
+          "first": [
+            "2024-06-01",
+            1.75,
+            33.17,
+            26.77
+          ]
+        },
+        "Sylhet": {
+          "lat": 24.91667,
+          "lon": 91.76667,
+          "days": 61,
+          "rain_total_mm_jun_jul_2024": 2401.8,
+          "missing_days": 0,
+          "first": [
+            "2024-06-01",
+            69.88,
+            31.97,
+            26.14
+          ]
+        },
+        "Rangpur": {
+          "lat": 25.73333,
+          "lon": 89.25,
+          "days": 61,
+          "rain_total_mm_jun_jul_2024": 1140.6,
+          "missing_days": 0,
+          "first": [
+            "2024-06-01",
+            17.93,
+            33.68,
+            27.11
+          ]
+        },
+        "Mymensingh": {
+          "lat": 24.75,
+          "lon": 90.4,
+          "days": 61,
+          "rain_total_mm_jun_jul_2024": 1892.9,
+          "missing_days": 0,
+          "first": [
+            "2024-06-01",
+            27.39,
+            32.33,
+            26.44
+          ]
+        },
+        "Sunamganj": {
+          "lat": 24.86667,
+          "lon": 91.41667,
+          "days": 61,
+          "rain_total_mm_jun_jul_2024": 2351.5,
+          "missing_days": 0,
+          "first": [
+            "2024-06-01",
+            65.48,
+            32.25,
+            26.62
+          ]
+        },
+        "Satkhira": {
+          "lat": 22.35,
+          "lon": 89.15,
+          "days": 61,
+          "rain_total_mm_jun_jul_2024": 591.4,
+          "missing_days": 0,
+          "first": [
+            "2024-06-01",
+            7.96,
+            34.33,
+            26.87
+          ]
+        }
+      }
+    },
+    "05": {
+      "key": "soilgrids",
+      "status": "ACQUIRED",
+      "points": {
+        "Rajshahi": {
+          "phh2o": {
+            "mean": 6.765384615384615,
+            "valid": 52,
+            "total": 306,
+            "d_factor": 10
+          },
+          "soc": {
+            "mean": 3.395424836601307,
+            "valid": 306,
+            "total": 306,
+            "d_factor": 10
+          },
+          "nitrogen": {
+            "mean": 0.25529411764705884,
+            "valid": 306,
+            "total": 306,
+            "d_factor": 100
+          }
+        },
+        "Dhaka": {
+          "phh2o": {
+            "mean": 5.51,
+            "valid": 20,
+            "total": 306,
+            "d_factor": 10
+          },
+          "soc": {
+            "mean": 1.5316993464052286,
+            "valid": 306,
+            "total": 306,
+            "d_factor": 10
+          },
+          "nitrogen": {
+            "mean": 0.10120915032679738,
+            "valid": 306,
+            "total": 306,
+            "d_factor": 100
+          }
+        },
+        "Chattogram": {
+          "phh2o": {
+            "mean": 5.421568627450981,
+            "valid": 306,
+            "total": 306,
+            "d_factor": 10
+          },
+          "soc": {
+            "mean": 21.777124183006535,
+            "valid": 306,
+            "total": 306,
+            "d_factor": 10
+          },
+          "nitrogen": {
+            "mean": 1.6176470588235294,
+            "valid": 306,
+            "total": 306,
+            "d_factor": 100
+          }
+        },
+        "Khulna": {
+          "phh2o": {
+            "mean": 5.905723905723906,
+            "valid": 297,
+            "total": 306,
+            "d_factor": 10
+          },
+          "soc": {
+            "mean": 40.88366013071895,
+            "valid": 306,
+            "total": 306,
+            "d_factor": 10
+          },
+          "nitrogen": {
+            "mean": 3.160032679738562,
+            "valid": 306,
+            "total": 306,
+            "d_factor": 100
+          }
+        },
+        "Barishal": {
+          "phh2o": {
+            "mean": 5.633070866141732,
+            "valid": 127,
+            "total": 306,
+            "d_factor": 10
+          },
+          "soc": {
+            "mean": 19.001633986928105,
+            "valid": 306,
+            "total": 306,
+            "d_factor": 10
+          },
+          "nitrogen": {
+            "mean": 1.132516339869281,
+            "valid": 306,
+            "total": 306,
+            "d_factor": 100
+          }
+        },
+        "Sylhet": {
+          "phh2o": {
+            "mean": 5.466549295774648,
+            "valid": 284,
+            "total": 306,
+            "d_factor": 10
+          },
+          "soc": {
+            "mean": 22.938562091503268,
+            "valid": 306,
+            "total": 306,
+            "d_factor": 10
+          },
+          "nitrogen": {
+            "mean": 1.6569281045751634,
+            "valid": 306,
+            "total": 306,
+            "d_factor": 100
+          }
+        },
+        "Rangpur": {
+          "phh2o": {
+            "mean": 5.786127167630058,
+            "valid": 173,
+            "total": 306,
+            "d_factor": 10
+          },
+          "soc": {
+            "mean": 10.445098039215686,
+            "valid": 306,
+            "total": 306,
+            "d_factor": 10
+          },
+          "nitrogen": {
+            "mean": 1.0236601307189543,
+            "valid": 306,
+            "total": 306,
+            "d_factor": 100
+          }
+        },
+        "Mymensingh": {
+          "phh2o": {
+            "mean": 5.804285714285714,
+            "valid": 140,
+            "total": 306,
+            "d_factor": 10
+          },
+          "soc": {
+            "mean": 10.229738562091503,
+            "valid": 306,
+            "total": 306,
+            "d_factor": 10
+          },
+          "nitrogen": {
+            "mean": 0.6958823529411765,
+            "valid": 306,
+            "total": 306,
+            "d_factor": 100
+          }
+        },
+        "Sunamganj": {
+          "phh2o": {
+            "mean": 5.687128712871287,
+            "valid": 303,
+            "total": 306,
+            "d_factor": 10
+          },
+          "soc": {
+            "mean": 27.52352941176471,
+            "valid": 306,
+            "total": 306,
+            "d_factor": 10
+          },
+          "nitrogen": {
+            "mean": 2.10202614379085,
+            "valid": 306,
+            "total": 306,
+            "d_factor": 100
+          }
+        },
+        "Satkhira": {
+          "phh2o": {
+            "mean": 5.999595141700405,
+            "valid": 247,
+            "total": 306,
+            "d_factor": 10
+          },
+          "soc": {
+            "mean": 26.726143790849672,
+            "valid": 306,
+            "total": 306,
+            "d_factor": 10
+          },
+          "nitrogen": {
+            "mean": 2.338300653594771,
+            "valid": 306,
+            "total": 306,
+            "d_factor": 100
+          }
+        }
+      }
+    },
+    "09": {
+      "key": "faostat_qcl",
+      "status": "ACQUIRED",
+      "rows": 768,
+      "latest_year_sample": [
+        "FaoObservation(area='Bangladesh', area_code_m49='050', item='Lentils, dry', item_code_cpc='01704', element='Area harvested', element_code='5312', year=2024, unit='ha', value=124892.0, flag='A')",
+        "FaoObservation(area='Bangladesh', area_code_m49='050', item='Lentils, dry', item_code_cpc='01704', element='Yield', element_code='5412', year=2024, unit='kg/ha', value=1479.8, flag='A')",
+        "FaoObservation(area='Bangladesh', area_code_m49='050', item='Lentils, dry', item_code_cpc='01704', element='Production', element_code='5510', year=2024, unit='t', value=184819.0, flag='A')",
+        "FaoObservation(area='Bangladesh', area_code_m49='050', item='Maize (corn)', item_code_cpc='0112', element='Area harvested', element_code='5312', year=2024, unit='ha', value=496681.0, flag='A')",
+        "FaoObservation(area='Bangladesh', area_code_m49='050', item='Maize (corn)', item_code_cpc='0112', element='Yield', element_code='5412', year=2024, unit='kg/ha', value=9246.4, flag='A')",
+        "FaoObservation(area='Bangladesh', area_code_m49='050', item='Maize (corn)', item_code_cpc='0112', element='Production', element_code='5510', year=2024, unit='t', value=4592508.0, flag='A')",
+        "FaoObservation(area='Bangladesh', area_code_m49='050', item='Rice', item_code_cpc='0113', element='Area harvested', element_code='5312', year=2024, unit='ha', value=11448789.0, flag='A')",
+        "FaoObservation(area='Bangladesh', area_code_m49='050', item='Rice', item_code_cpc='0113', element='Yield', element_code='5412', year=2024, unit='kg/ha', value=5290.6, flag='A')",
+        "FaoObservation(area='Bangladesh', area_code_m49='050', item='Rice', item_code_cpc='0113', element='Production', element_code='5510', year=2024, unit='t', value=60570453.05, flag='A')",
+        "FaoObservation(area='Bangladesh', area_code_m49='050', item='Wheat', item_code_cpc='0111', element='Area harvested', element_code='5312', year=2024, unit='ha', value=311677.0, flag='A')"
+      ]
+    },
+    "10": {
+      "key": "hls_s30",
+      "status": "DISCOVERED",
+      "hits": 5,
+      "sample": [
+        {
+          "id": "G2832324629-LPCLOUD",
+          "start": "2024-01-04T04:51:46.119Z",
+          "link": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/HLSS30.020/HLS.S30.T45RXH.2024004T044209.v2.0/HLS.S30.T45RXH.2024004T044209.v2.0.Fmask.tif"
+        },
+        {
+          "id": "G2832232413-LPCLOUD",
+          "start": "2024-01-04T04:52:00.699Z",
+          "link": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/HLSS30.020/HLS.S30.T45QXG.2024004T044209.v2.0/HLS.S30.T45QXG.2024004T044209.v2.0.SAA.tif"
+        },
+        {
+          "id": "G2834291790-LPCLOUD",
+          "start": "2024-01-09T04:51:41.321Z",
+          "link": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/HLSS30.020/HLS.S30.T45RXH.2024009T044141.v2.0/HLS.S30.T45RXH.2024009T044141.v2.0.B09.tif"
+        }
+      ]
+    },
+    "11": {
+      "key": "hls_l30",
+      "status": "DISCOVERED",
+      "hits": 5,
+      "sample": [
+        {
+          "id": "G2832230634-LPCLOUD",
+          "start": "2024-01-03T04:36:28.822Z",
+          "link": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/HLSL30.020/HLS.L30.T45RXH.2024003T043628.v2.0/HLS.L30.T45RXH.2024003T043628.v2.0.B03.tif"
+        },
+        {
+          "id": "G2832237536-LPCLOUD",
+          "start": "2024-01-03T04:36:52.713Z",
+          "link": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/HLSL30.020/HLS.L30.T45QXG.2024003T043652.v2.0/HLS.L30.T45QXG.2024003T043652.v2.0.VZA.tif"
+        },
+        {
+          "id": "G2832251352-LPCLOUD",
+          "start": "2024-01-04T04:30:27.083Z",
+          "link": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/HLSL30.020/HLS.L30.T45RXH.2024004T043027.v2.0/HLS.L30.T45RXH.2024004T043027.v2.0.VAA.tif"
+        }
+      ]
+    },
+    "12": {
+      "key": "imerg_final",
+      "status": "DISCOVERED",
+      "hits": 5,
+      "sample": [
+        {
+          "id": "G3087510500-GES_DISC",
+          "start": "2024-01-01T00:00:00.000Z",
+          "link": "https://data.gesdisc.earthdata.nasa.gov/data/GPM_L3/GPM_3IMERGDF.07/2024/01/3B-DAY.MS.MRG.3IMERG.20240101-S000000-E235959.V07B.nc4"
+        },
+        {
+          "id": "G3087510289-GES_DISC",
+          "start": "2024-01-02T00:00:00.000Z",
+          "link": "https://data.gesdisc.earthdata.nasa.gov/data/GPM_L3/GPM_3IMERGDF.07/2024/01/3B-DAY.MS.MRG.3IMERG.20240102-S000000-E235959.V07B.nc4"
+        },
+        {
+          "id": "G3087522811-GES_DISC",
+          "start": "2024-01-03T00:00:00.000Z",
+          "link": "https://data.gesdisc.earthdata.nasa.gov/data/GPM_L3/GPM_3IMERGDF.07/2024/01/3B-DAY.MS.MRG.3IMERG.20240103-S000000-E235959.V07B.nc4"
+        }
+      ]
+    },
+    "13": {
+      "key": "smap_l4",
+      "status": "DISCOVERED",
+      "hits": 5,
+      "sample": [
+        {
+          "id": "G4351628230-NSIDC_CPRD",
+          "start": "2023-12-31T21:00:00.000Z",
+          "link": "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/SMAP/SPL4SMGP/008/2023/12/31/SMAP_L4_SM_gph_20231231T223000_Vv8012_001.h5"
+        },
+        {
+          "id": "G4351627602-NSIDC_CPRD",
+          "start": "2024-01-01T00:00:00.000Z",
+          "link": "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/SMAP/SPL4SMGP/008/2024/01/01/SMAP_L4_SM_gph_20240101T013000_Vv8012_001.h5"
+        },
+        {
+          "id": "G4351628201-NSIDC_CPRD",
+          "start": "2024-01-01T03:00:00.000Z",
+          "link": "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/SMAP/SPL4SMGP/008/2024/01/01/SMAP_L4_SM_gph_20240101T043000_Vv8012_001.h5"
+        }
+      ]
+    },
+    "14": {
+      "key": "mod13q1",
+      "status": "DISCOVERED",
+      "hits": 5,
+      "sample": [
+        {
+          "id": "G2830770661-LPCLOUD",
+          "start": "2023-12-19T00:00:00.000Z",
+          "link": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD13Q1.061/MOD13Q1.A2023353.h26v06.061.2024005171256/MOD13Q1.A2023353.h26v06.061.2024005171256.hdf"
+        },
+        {
+          "id": "G2844603610-LPCLOUD",
+          "start": "2024-01-01T00:00:00.000Z",
+          "link": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD13Q1.061/MOD13Q1.A2024001.h26v06.061.2024022131619/MOD13Q1.A2024001.h26v06.061.2024022131619.hdf"
+        },
+        {
+          "id": "G2855983540-LPCLOUD",
+          "start": "2024-01-17T00:00:00.000Z",
+          "link": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD13Q1.061/MOD13Q1.A2024017.h26v06.061.2024038035143/MOD13Q1.A2024017.h26v06.061.2024038035143.hdf"
+        }
+      ]
+    },
+    "15": {
+      "key": "mcd12q2",
+      "status": "DISCOVERED",
+      "hits": 1,
+      "sample": [
+        {
+          "id": "G3658664003-LPCLOUD",
+          "start": "2024-01-01T00:00:00.000Z",
+          "link": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MCD12Q2.061/MCD12Q2.A2024001.h26v06.061.2025216140806/MCD12Q2.A2024001.h26v06.061.2025216140806.hdf"
+        }
+      ]
+    },
+    "16": {
+      "key": "mcd12q1",
+      "status": "DISCOVERED",
+      "hits": 1,
+      "sample": [
+        {
+          "id": "G3634115380-LPCLOUD",
+          "start": "2024-01-01T00:00:00.000Z",
+          "link": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MCD12Q1.061/MCD12Q1.A2024001.h26v06.061.2025206051632/MCD12Q1.A2024001.h26v06.061.2025206051632.hdf"
+        }
+      ]
+    },
+    "17": {
+      "key": "mod16a2gf",
+      "status": "DISCOVERED",
+      "hits": 5,
+      "sample": [
+        {
+          "id": "G3368018132-LPCLOUD",
+          "start": "2024-01-01T00:00:00.000Z",
+          "link": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD16A2GF.061/MOD16A2GF.A2024001.h26v06.061.2025012145450/MOD16A2GF.A2024001.h26v06.061.2025012145450.hdf"
+        },
+        {
+          "id": "G3368177330-LPCLOUD",
+          "start": "2024-01-09T00:00:00.000Z",
+          "link": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD16A2GF.061/MOD16A2GF.A2024009.h26v06.061.2025012201156/MOD16A2GF.A2024009.h26v06.061.2025012201156.hdf"
+        },
+        {
+          "id": "G3368273282-LPCLOUD",
+          "start": "2024-01-17T00:00:00.000Z",
+          "link": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD16A2GF.061/MOD16A2GF.A2024017.h26v06.061.2025012232108/MOD16A2GF.A2024017.h26v06.061.2025012232108.hdf"
+        }
+      ]
+    },
+    "18": {
+      "key": "mod11a1",
+      "status": "DISCOVERED",
+      "hits": 5,
+      "sample": [
+        {
+          "id": "G2830306368-LPCLOUD",
+          "start": "2024-01-01T00:00:00.000Z",
+          "link": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A1.061/MOD11A1.A2024001.h26v06.061.2024005040625/MOD11A1.A2024001.h26v06.061.2024005040625.hdf"
+        },
+        {
+          "id": "G2830328014-LPCLOUD",
+          "start": "2024-01-02T00:00:00.000Z",
+          "link": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A1.061/MOD11A1.A2024002.h26v06.061.2024005052910/MOD11A1.A2024002.h26v06.061.2024005052910.hdf"
+        },
+        {
+          "id": "G2830596137-LPCLOUD",
+          "start": "2024-01-03T00:00:00.000Z",
+          "link": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A1.061/MOD11A1.A2024003.h26v06.061.2024005155015/MOD11A1.A2024003.h26v06.061.2024005155015.hdf"
+        }
+      ]
+    },
+    "19": {
+      "key": "imerg_late",
+      "status": "DISCOVERED",
+      "hits": 5,
+      "sample": [
+        {
+          "id": "G3160756842-GES_DISC",
+          "start": "2024-01-01T00:00:00.000Z",
+          "link": "https://data.gesdisc.earthdata.nasa.gov/data/GPM_L3/GPM_3IMERGDL.07/2024/01/3B-DAY-L.MS.MRG.3IMERG.20240101-S000000-E235959.V07B.nc4"
+        },
+        {
+          "id": "G3160744874-GES_DISC",
+          "start": "2024-01-02T00:00:00.000Z",
+          "link": "https://data.gesdisc.earthdata.nasa.gov/data/GPM_L3/GPM_3IMERGDL.07/2024/01/3B-DAY-L.MS.MRG.3IMERG.20240102-S000000-E235959.V07B.nc4"
+        },
+        {
+          "id": "G3160745126-GES_DISC",
+          "start": "2024-01-03T00:00:00.000Z",
+          "link": "https://data.gesdisc.earthdata.nasa.gov/data/GPM_L3/GPM_3IMERGDL.07/2024/01/3B-DAY-L.MS.MRG.3IMERG.20240103-S000000-E235959.V07B.nc4"
+        }
+      ]
+    },
+    "20": {
+      "key": "power_monthly",
+      "status": "ACQUIRED",
+      "points": {
+        "Rajshahi": {
+          "months": 24,
+          "2024-07": {
+            "PRECTOTCORR": 9.71,
+            "T2M_MAX": 34.82
+          },
+          "units": {
+            "PRECTOTCORR": "mm/day",
+            "T2M_MAX": "C"
+          }
+        },
+        "Dhaka": {
+          "months": 24,
+          "2024-07": {
+            "PRECTOTCORR": 11.12,
+            "T2M_MAX": 33.52
+          },
+          "units": {
+            "PRECTOTCORR": "mm/day",
+            "T2M_MAX": "C"
+          }
+        },
+        "Chattogram": {
+          "months": 24,
+          "2024-07": {
+            "PRECTOTCORR": 21.53,
+            "T2M_MAX": 33.64
+          },
+          "units": {
+            "PRECTOTCORR": "mm/day",
+            "T2M_MAX": "C"
+          }
+        },
+        "Khulna": {
+          "months": 24,
+          "2024-07": {
+            "PRECTOTCORR": 13.95,
+            "T2M_MAX": 33.82
+          },
+          "units": {
+            "PRECTOTCORR": "mm/day",
+            "T2M_MAX": "C"
+          }
+        },
+        "Barishal": {
+          "months": 24,
+          "2024-07": {
+            "PRECTOTCORR": 13.04,
+            "T2M_MAX": 32.78
+          },
+          "units": {
+            "PRECTOTCORR": "mm/day",
+            "T2M_MAX": "C"
+          }
+        },
+        "Sylhet": {
+          "months": 24,
+          "2024-07": {
+            "PRECTOTCORR": 27.32,
+            "T2M_MAX": 35.17
+          },
+          "units": {
+            "PRECTOTCORR": "mm/day",
+            "T2M_MAX": "C"
+          }
+        },
+        "Rangpur": {
+          "months": 24,
+          "2024-07": {
+            "PRECTOTCORR": 14.34,
+            "T2M_MAX": 34.91
+          },
+          "units": {
+            "PRECTOTCORR": "mm/day",
+            "T2M_MAX": "C"
+          }
+        },
+        "Mymensingh": {
+          "months": 24,
+          "2024-07": {
+            "PRECTOTCORR": 17.56,
+            "T2M_MAX": 34.2
+          },
+          "units": {
+            "PRECTOTCORR": "mm/day",
+            "T2M_MAX": "C"
+          }
+        }
+      }
+    },
+    "21": {
+      "key": "power_cmip6",
+      "status": "NO_DATA",
+      "points": {
+        "Rajshahi": {
+          "has_coverage": false,
+          "model": "ensemble"
+        },
+        "Sylhet": {
+          "has_coverage": false,
+          "model": "ensemble"
+        },
+        "Khulna": {
+          "has_coverage": false,
+          "model": "ensemble"
+        }
+      }
+    },
+    "22": {
+      "key": "smap_l3e",
+      "status": "DISCOVERED",
+      "hits": 5,
+      "sample": [
+        {
+          "id": "G2940380616-NSIDC_CPRD",
+          "start": "2024-01-01T00:00:00.000Z",
+          "link": "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/SMAP/SPL3SMP_E/006/2024/01/01/SMAP_L3_SM_P_E_20240101_R19240_001.h5"
+        },
+        {
+          "id": "G2940379935-NSIDC_CPRD",
+          "start": "2024-01-02T00:00:00.000Z",
+          "link": "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/SMAP/SPL3SMP_E/006/2024/01/02/SMAP_L3_SM_P_E_20240102_R19240_001.h5"
+        },
+        {
+          "id": "G2940379969-NSIDC_CPRD",
+          "start": "2024-01-03T00:00:00.000Z",
+          "link": "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/SMAP/SPL3SMP_E/006/2024/01/03/SMAP_L3_SM_P_E_20240103_R19240_001.h5"
+        }
+      ]
+    },
+    "23": {
+      "key": "opera_dswx_hls",
+      "status": "DISCOVERED",
+      "hits": 5,
+      "sample": [
+        {
+          "id": "G2832303372-POCLOUD",
+          "start": "2024-01-03T04:36:28.822Z",
+          "link": "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-public/OPERA_L3_DSWX-HLS_PROVISIONAL_V1/OPERA_L3_DSWx-HLS_T45RXH_20240103T043628Z_20240108T223543Z_L8_30_v1.0_BROWSE.png"
+        },
+        {
+          "id": "G2832428099-POCLOUD",
+          "start": "2024-01-03T04:36:52.713Z",
+          "link": "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-public/OPERA_L3_DSWX-HLS_PROVISIONAL_V1/OPERA_L3_DSWx-HLS_T45QXG_20240103T043652Z_20240109T045913Z_L8_30_v1.0_BROWSE.png"
+        },
+        {
+          "id": "G2833041733-POCLOUD",
+          "start": "2024-01-04T04:51:46.119Z",
+          "link": "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-public/OPERA_L3_DSWX-HLS_PROVISIONAL_V1/OPERA_L3_DSWx-HLS_T45RXH_20240104T044209Z_20240110T043209Z_S2B_30_v1.0_BROWSE.png"
+        }
+      ]
+    },
+    "24": {
+      "key": "nasadem",
+      "status": "DISCOVERED",
+      "hits": 1,
+      "sample": [
+        {
+          "id": "G2816808124-LPCLOUD",
+          "start": "2000-02-11T00:00:00.000Z",
+          "link": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/NASADEM_HGT.001/NASADEM_HGT_n24e088/NASADEM_HGT_n24e088.zip"
+        }
+      ]
+    },
+    "25": {
+      "key": "gldas_noah",
+      "status": "DISCOVERED",
+      "hits": 5,
+      "sample": [
+        {
+          "id": "G2936999206-GES_DISC",
+          "start": "2024-01-01T00:00:00.000Z",
+          "link": "https://data.gesdisc.earthdata.nasa.gov/data/GLDAS/GLDAS_NOAH025_3H.2.1/2024/001/GLDAS_NOAH025_3H.A20240101.0000.021.nc4"
+        },
+        {
+          "id": "G2937001304-GES_DISC",
+          "start": "2024-01-01T03:00:00.000Z",
+          "link": "https://data.gesdisc.earthdata.nasa.gov/data/GLDAS/GLDAS_NOAH025_3H.2.1/2024/001/GLDAS_NOAH025_3H.A20240101.0300.021.nc4"
+        },
+        {
+          "id": "G2936999332-GES_DISC",
+          "start": "2024-01-01T06:00:00.000Z",
+          "link": "https://data.gesdisc.earthdata.nasa.gov/data/GLDAS/GLDAS_NOAH025_3H.2.1/2024/001/GLDAS_NOAH025_3H.A20240101.0600.021.nc4"
+        }
+      ]
+    },
+    "26": {
+      "key": "fldas_noah",
+      "status": "DISCOVERED",
+      "hits": 5,
+      "sample": [
+        {
+          "id": "G2869537503-GES_DISC",
+          "start": "2024-01-01T00:00:00.000Z",
+          "link": "https://data.gesdisc.earthdata.nasa.gov/data/FLDAS/FLDAS_NOAH01_C_GL_M.001/2024/FLDAS_NOAH01_C_GL_M.A202401.001.nc"
+        },
+        {
+          "id": "G2900217035-GES_DISC",
+          "start": "2024-02-01T00:00:00.000Z",
+          "link": "https://data.gesdisc.earthdata.nasa.gov/data/FLDAS/FLDAS_NOAH01_C_GL_M.001/2024/FLDAS_NOAH01_C_GL_M.A202402.001.nc"
+        },
+        {
+          "id": "G2940242033-GES_DISC",
+          "start": "2024-03-01T00:00:00.000Z",
+          "link": "https://data.gesdisc.earthdata.nasa.gov/data/FLDAS/FLDAS_NOAH01_C_GL_M.001/2024/FLDAS_NOAH01_C_GL_M.A202403.001.nc"
+        }
+      ]
+    },
+    "27": {
+      "key": "vj113a1",
+      "status": "DISCOVERED",
+      "hits": 5,
+      "sample": [
+        {
+          "id": "G2831282329-LPCLOUD",
+          "start": "2023-12-19T00:00:00.000Z",
+          "link": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/VJ113A1.002/VJ113A1.A2023353.h26v06.002.2024006150213/VJ113A1.A2023353.h26v06.002.2024006150213.h5"
+        },
+        {
+          "id": "G2835579880-LPCLOUD",
+          "start": "2023-12-27T00:00:00.000Z",
+          "link": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/VJ113A1.002/VJ113A1.A2023361.h26v06.002.2024013033738/VJ113A1.A2023361.h26v06.002.2024013033738.h5"
+        },
+        {
+          "id": "G2837955055-LPCLOUD",
+          "start": "2024-01-01T00:00:00.000Z",
+          "link": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/VJ113A1.002/VJ113A1.A2024001.h26v06.002.2024017113505/VJ113A1.A2024001.h26v06.002.2024017113505.h5"
+        }
+      ]
+    },
+    "28": {
+      "key": "landsat_c2_l2",
+      "status": "DISCOVERED",
+      "hits": 5,
+      "sample": [
+        {
+          "id": "LC08_L2SP_138043_20241229_02_T1",
+          "start": "2024-12-29T04:30:38.089959+00:00",
+          "link": "s3://usgs-landsat/collection02/level-2/standard/oli-tirs/2024/138/043/LC08_L2SP_138043_20241229_20250104_02_T1/LC08_L2SP_138043_20241229_20250104_02_T1_thumb_small.jpeg"
+        },
+        {
+          "id": "LC09_L2SP_139043_20241228_02_T1",
+          "start": "2024-12-28T04:36:57.109463+00:00",
+          "link": "s3://usgs-landsat/collection02/level-2/standard/oli-tirs/2024/139/043/LC09_L2SP_139043_20241228_20241229_02_T1/LC09_L2SP_139043_20241228_20241229_02_T1_thumb_small.jpeg"
+        },
+        {
+          "id": "LC09_L2SP_138043_20241221_02_T1",
+          "start": "2024-12-21T04:30:46.487412+00:00",
+          "link": "s3://usgs-landsat/collection02/level-2/standard/oli-tirs/2024/138/043/LC09_L2SP_138043_20241221_20241222_02_T1/LC09_L2SP_138043_20241221_20241222_02_T1_thumb_small.jpeg"
+        }
+      ]
+    },
+    "29": {
+      "key": "s1_grd",
+      "status": "DISCOVERED",
+      "hits": 2,
+      "sample": [
+        "S1A_IW_GRDH_1SDV_20240723T115650_20240723T115715_054888_06AF59_1EC2",
+        "S1A_IW_GRDH_1SDV_20240711T115650_20240711T115715_054713_06A943_394A"
+      ]
+    },
+    "30": {
+      "key": "s2_l2a",
+      "status": "DISCOVERED",
+      "hits": 5,
+      "sample": [
+        {
+          "id": "S2B_45QXG_20241229_0_L2A",
+          "start": "2024-12-29T04:52:01.961000+00:00",
+          "link": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/Q/XG/2024/12/S2B_45QXG_20241229_0_L2A/AOT.tif"
+        },
+        {
+          "id": "S2B_45RXH_20241229_0_L2A",
+          "start": "2024-12-29T04:51:47.364000+00:00",
+          "link": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/XH/2024/12/S2B_45RXH_20241229_0_L2A/AOT.tif"
+        },
+        {
+          "id": "S2A_45QXG_20241224_0_L2A",
+          "start": "2024-12-24T04:52:01.136000+00:00",
+          "link": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/Q/XG/2024/12/S2A_45QXG_20241224_0_L2A/AOT.tif"
+        }
+      ]
+    }
+  }
+}

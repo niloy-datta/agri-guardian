@@ -19,6 +19,7 @@ from app.integrations.common.oauth import ClientCredentialsTokenSource
 from app.integrations.copernicus.cdse import CdseClient, CdseS3Locator
 from app.integrations.copernicus.sentinel_hub import SentinelHubClient
 from app.integrations.fao.faostat import FaostatClient
+from app.integrations.fao.gaez import GaezClient
 from app.integrations.gee.client import EarthEngineClient, ServiceAccountTokenSource
 from app.integrations.nasa.appeears import AppeearsClient
 from app.integrations.nasa.discovery import AsfClient, CmrClient, EonetClient
@@ -195,6 +196,13 @@ class IntegrationHub:
             token=s.faostat_token,
             http=self._http("FAOSTAT"),
             cache_dir=Path(s.resolve_nasa_power_cache_dir()).parent / "faostat",
+        )
+
+    @cached_property
+    def gaez(self) -> GaezClient:
+        return GaezClient(
+            http=self._http("FAO GAEZ v5"),
+            cache_dir=Path(self._settings.resolve_nasa_power_cache_dir()).parent / "gaez",
         )
 
     @cached_property
