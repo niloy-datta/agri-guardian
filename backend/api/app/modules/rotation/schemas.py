@@ -66,6 +66,11 @@ class DatasetOut(BaseModel):
     id_confirmed: bool
     status: str
     blocker: str
+    last_updated: str | None = None
+    acquired: str = "UNKNOWN"
+    validated: str = "UNKNOWN"
+    integrated: str = "UNKNOWN"
+    tested: str = "UNKNOWN"
 
 
 class RotationProfileIn(BaseModel):

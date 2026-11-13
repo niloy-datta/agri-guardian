@@ -44,7 +44,7 @@ from app.modules.rotation.schemas import (
 router = APIRouter(prefix="/intelligence", tags=["intelligence"])
 field_router = APIRouter(prefix="/fields/{field_id}", tags=["rotation"])
 
-_EVIDENCE_FILE = Path(__file__).resolve().parents[4] / "docs" / "evidence" / "dataset_status.json"
+_EVIDENCE_FILE = Path(__file__).resolve().parents[4] / "docs" / "evidence" / "live_acquisition.json"
 
 
 async def get_hub() -> AsyncIterator[IntegrationHub]:
@@ -72,18 +72,37 @@ def _location_out(r: loc.LocationResolution) -> LocationOut:
 async def list_datasets(user: CurrentUser) -> list[DatasetOut]:
     """All 30 catalogued datasets with verified identifiers and current status."""
     status_map: dict[str, dict[str, str]] = {}
+    updated = None
     if _EVIDENCE_FILE.exists():
-        status_map = json.loads(_EVIDENCE_FILE.read_text(encoding="utf-8"))
+        try:
+            evidence = json.loads(_EVIDENCE_FILE.read_text(encoding="utf-8"))
+            status_map = evidence.get("results", {})
+            updated = evidence.get("generated_at")
+        except (OSError, ValueError, AttributeError):
+            # An absent or invalid evidence record is not evidence of success.
+            pass
     out = []
     for d in DATASETS:
         ev = CMR_EVIDENCE.get((d.cmr_short_name or "", d.cmr_version or ""))
         st = status_map.get(f"{d.number:02d}", {})
+        recorded = st.get("status", "NOT_CHECKED")
+        if st.get("key") != d.key:
+            recorded = "NOT_CHECKED"
+            st = {}
+        blocker = {
+            "DISCOVERED": "Catalogue discovery only; observations not verified as acquired.",
+            "NO_DATA": "The recorded request returned no usable values.",
+            "FAILED": "Acquisition failed; inspect the acquisition record.",
+            "BLOCKED": "Acquisition blocked; inspect provider credentials or permissions.",
+            "NOT_CHECKED": "No acquisition evidence recorded for this dataset.",
+        }.get(recorded, "")
         out.append(DatasetOut(
             number=d.number, key=d.key, name=d.name, access=d.access.value, use=d.use,
             caveat=d.caveat, resolution=d.resolution,
             product=d.cmr_short_name and f"{d.cmr_short_name} v{d.cmr_version}",
             doi=ev.doi if ev else None, id_confirmed=d.id_confirmed,
-            status=st.get("status", "UNKNOWN"), blocker=st.get("blocker", ""),
+            status=recorded, blocker=blocker, last_updated=updated if st else None,
+            acquired="RECORDED" if recorded == "ACQUIRED" else "NOT_VERIFIED",
         ))  # fmt: skip
     return out
 
