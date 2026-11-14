@@ -7,6 +7,7 @@ import '../../../../shared/models/crop_cycle.dart';
 import '../../../../shared/models/field.dart';
 import '../../application/fields_providers.dart';
 import '../../../../core/localization/app_localizations.dart';
+import '../../../rotation/presentation/screens/rotation_comparison_screen.dart';
 
 const _bg = Color(0xFF06110E);
 const _card = Color(0xFF10271E);
@@ -105,6 +106,16 @@ class _FieldDetailsBody extends ConsumerWidget {
           ),
           const SizedBox(height: 16),
           const _SatelliteAwaitingCard(),
+          const SizedBox(height: 16),
+          FilledButton.icon(
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute<void>(
+                builder: (_) => RotationComparisonScreen(fieldId: field.id),
+              ),
+            ),
+            icon: const Icon(Icons.grass_rounded),
+            label: const Text('Explore Crop Rotations'),
+          ),
           const SizedBox(height: 16),
           Text(
             context.l10n.cropCyclesTitle,
