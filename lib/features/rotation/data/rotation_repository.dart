@@ -50,11 +50,17 @@ class RotationRepository {
   Future<RotationComparison> compareForField(
     String fieldId, {
     int maxOverlapDays = 0,
+    String irrigationAccess = 'none',
+    List<String> preferredOutcomes = const ['water_saving'],
   }) async {
     try {
       final json = await _client.post(
         ApiEndpoints.fieldRotationScenarios(fieldId),
-        data: {'max_overlap_days': maxOverlapDays},
+        data: {
+          'max_overlap_days': maxOverlapDays,
+          'irrigation_access': irrigationAccess,
+          'preferred_outcomes': preferredOutcomes,
+        },
       );
       return RotationComparison.fromJson(Map<String, dynamic>.from(json as Map));
     } on NetworkException catch (e) {
