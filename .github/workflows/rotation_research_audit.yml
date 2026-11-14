@@ -1,0 +1,35 @@
+name: Rotation Research Evidence Audit
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "backend/api/scripts/rotation_research_audit.py"
+      - "backend/api/tests/test_rotation_research_audit.py"
+      - "docs/evidence/rotation_live_runs.json"
+      - "docs/research/**"
+      - "docs/hackathon/**"
+      - ".github/workflows/rotation_research_audit.yml"
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify deterministic evidence snapshot audit
+        run: |
+          python backend/api/scripts/rotation_research_audit.py --output rotation_research_audit.json
+          python -c "import json; r=json.load(open('rotation_research_audit.json')); assert r['recorded_run_audit']['recorded_cases'] > 0; assert r['expert_review_evaluation']['status'] == 'NOT_EVALUATED'"
+      - name: Unit tests of audit methodology
+        run: |
+          python -m pip install pytest
+          cd backend/api
+          python -m pytest -q tests/test_rotation_research_audit.py
+      - name: Upload audit artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: recorded-rotation-audit
+          path: rotation_research_audit.json
