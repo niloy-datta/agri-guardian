@@ -15,7 +15,8 @@
 - `docs/evidence/rotation_live_runs.json` contains **20 recorded cases (10 locations x two irrigation settings)**. These are stored scenario outputs, not verified farmer decisions.
 - `docs/evidence/dataset_matrix.md` records **30 catalogued sources/products**. The recorded acquisition report has 4 ACQUIRED samples, 19 DISCOVERED metadata-only products, 6 NOT_CHECKED, and 1 NO_DATA. These are distinct evidence states.
 - The Rajshahi monsoon-onset method has unresolved cross-product and independent validation questions. The advisory safety gate must remain on.
-- The Flutter repository has typed rotation repositories/providers, but a live end-to-end public demo journey is not established by this plan.
+- The 20 saved rotation scenarios cover **58 ranked options**; **56** contain at least one crop with unknown water requirements, and the recorded top choice did not change between irrigation variants across 10 paired locations. These are audit diagnostics, not proof that recommendations are wrong or right.
+- A Flutter rotation comparison screen has now been wired from saved field details, with irrigation, priority, overlap, evidence and uncertainty controls. **Device-level end-to-end functionality and public reviewer access are still unverified**.
 
 ## Hackathon track — 14–15 November 2026
 
@@ -23,7 +24,7 @@
 
 ### P0 before submission
 
-1. Validate one complete user journey on an Android device from farmer inputs to backend rotation comparison and a visible source/uncertainty panel. Record screen capture; if authentication prevents public reviewer access, use a **publicly accessible recorded demonstration** rather than claiming a live open demo.
+1. Validate the newly wired Field Details → Crop Rotation Explorer journey on an Android device from farmer inputs to backend rotation comparison and a visible source/uncertainty panel. Record screen capture; if authentication prevents public reviewer access, use a **publicly accessible recorded demonstration** rather than claiming a live open demo.
 2. Demonstrate two real location cases (e.g. Rajshahi and Sylhet), with **actual location-specific outputs**, one irrigation scenario switch and the reason a crop was excluded. Avoid screenshots with demo labels masquerading as live readings.
 3. Run `python backend/api/scripts/rotation_research_audit.py --output docs/evidence/rotation_research_audit.json`; inspect the status counts and unknown-water cases. Explain honestly that this is a reproducibility/snapshot audit, **not measured impact**.
 4. Show NASA POWER provenance (parameter, historical period, grid resolution and original NASA URL). Do not imply NASA POWER temperatures/rainfall drive the current rotation ranking when they only provide context.
@@ -56,7 +57,7 @@ Avoid claiming "multi-source fusion significantly improves yield" until that cla
 2. **Dataset manifest**: freeze versions, time windows, geographic resolution, original provider links, missing/fill-value logic, licenses and SHA-256 checksums. Do not treat discovery as acquisition.
 3. **Causal relevance**: specify which variables actively change ranking. Test whether adding climate/soil improves measured expert agreement; if not, report the negative result.
 4. **Baselines**: compare (A) calendar-only feasibility, (B) calendar plus GAEZ, (C) carefully justified climate/soil extension, (D) same extension with safety-abstention.
-5. **Ground truth**: collect independent agronomist or farmer-reviewed acceptable rotations; include dissent and reviewers' expertise. Historical observed field outcomes are an even stronger but separate source.
+5. **Ground truth**: collect independent agronomist or farmer-reviewed acceptable rotations; include dissent and reviewers' expertise. Target the 56/58 uncertain-water scenarios for source remediation and reviewer scrutiny. Historical observed field outcomes are an even stronger but separate source.
 6. **Evaluation**: expert top-1/top-3 agreement on viable cases; decision coverage; recommendations when experts find no safe option; constraint-violation counts; evidence provenance completeness; sensitivity to irrigation, region and year.
 7. **Spatial/temporal generalization**: hold out entire districts or spatial regions and future seasons; do not use the same farm/year in train and test. For rule systems, test generalization across independent cases rather than describing it as learned-model CV.
 8. **Uncertainty**: explicit abstention, missing evidence, map scale mismatch, near-border districts and disputed BAMIS calendars. Do not invent numeric confidence.
