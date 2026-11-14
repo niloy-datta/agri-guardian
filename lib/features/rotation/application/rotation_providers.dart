@@ -15,11 +15,21 @@ final rotationProfileProvider =
 });
 
 /// Scenario comparison request: which field and how strict the calendar is.
-typedef RotationQuery = ({String fieldId, int maxOverlapDays});
+typedef RotationQuery = ({
+  String fieldId,
+  int maxOverlapDays,
+  String irrigationAccess,
+  String priority,
+});
 
 final rotationComparisonProvider = FutureProvider.autoDispose
     .family<RotationComparison, RotationQuery>((ref, q) {
   return ref
       .watch(rotationRepositoryProvider)
-      .compareForField(q.fieldId, maxOverlapDays: q.maxOverlapDays);
+      .compareForField(
+        q.fieldId,
+        maxOverlapDays: q.maxOverlapDays,
+        irrigationAccess: q.irrigationAccess,
+        preferredOutcomes: [q.priority],
+      );
 });
