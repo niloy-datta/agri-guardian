@@ -29,6 +29,11 @@ class _MockApiClient implements ApiClient {
   }
 
   @override
+  Future<dynamic> put(String path, {Map<String, dynamic>? data}) async {
+    throw UnimplementedError('PUT is not used by this test double');
+  }
+
+  @override
   Future<dynamic> patch(String path, {dynamic data}) async {
     throw UnimplementedError('not used by these tests');
   }
